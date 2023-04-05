@@ -1,0 +1,40 @@
+
+
+@use "../utils" as *;
+
+// Typography
+
+html {
+    // Convertion : 1rem == 10px
+    font-size: 62.5%;
+}
+
+%bold_typo{
+    font-family:sans-serif;
+    font-weight:700;  
+}
+
+h1{
+    @extend %bold_typo;
+    font-size:8rem;
+}
+
+h2{
+    @extend %bold_typo;
+    font-size:4rem;
+}
+
+h3{
+    font-family:sans-serif;
+    font-weight:700;  
+    font-size:3;  
+}
+
+p{
+    font-family:sans-serif;
+    font-size:2rem;
+    
+    @include breakpoint(mobile){
+        font-size: 1.8rem;
+    }
+}
