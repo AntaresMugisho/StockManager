@@ -8,6 +8,8 @@
         <title>{{ config('app.name') . " | Dashboard" }}</title>
 
         <link rel="stylesheet" href="/css/app.css">
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body>

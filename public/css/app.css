@@ -31,6 +31,7 @@ button {
 
 html {
   font-size: 62.5%;
+  font-family: sans-serif;
 }
 
 .gauge {
@@ -75,39 +76,76 @@ html {
   color: #004586;
 }
 
-.progress-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid gray;
-  border-radius: 8px;
-  width: clamp(100px, 100%, 300px);
-  margin: 0 12px;
-}
-.progress-card svg {
+.progress-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+
+.progress-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: clamp(180px, 100%, 280px);
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0 12px;
+}
+.progress-card .head-icon img {
+  height: 50px;
+}
+.progress-card .box {
+  border-width: 2px 0 2px 0;
+  border-style: solid;
+  border-color: gray;
+  padding-bottom: 12px;
+  position: relative;
+}
+.progress-card .box .value {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: blueviolet;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  font-size: 2rem;
+  font-weight: 600;
+}
+.progress-card svg {
+  width: 150px;
+  height: 150px;
+}
 .progress-card svg circle {
   fill: none;
   stroke-width: 16px;
-  stroke-dasharray: 440px;
-  stroke-linecap: round;
+  stroke-dasharray: 374px;
 }
 .progress-card svg circle:nth-child(1) {
-  stroke: rgb(212, 212, 212);
   stroke-dashoffset: 0;
 }
 .progress-card svg circle:nth-child(2) {
   stroke: blueviolet;
-  stroke-dashoffset: 440px;
+  stroke-dashoffset: 374px;
   animation: circle 1s forwards;
 }
 @keyframes circle {
   to {
-    stroke-dashoffset: 220px;
+    stroke-dashoffset: 187px;
   }
+}
+.progress-card .label {
+  font-size: 1.6rem;
+  font-weight: 600;
 }/*# sourceMappingURL=app.css.map */
