@@ -76,13 +76,6 @@ html {
   color: #004586;
 }
 
-.progress-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
 .progress-card {
   display: flex;
   flex-direction: column;
@@ -93,6 +86,7 @@ html {
   border: 1px solid gray;
   border-radius: 8px;
   padding: 16px;
+  background-color: rgba(197, 239, 255, 0.253);
   margin: 0 12px;
 }
 .progress-card .head-icon img {
@@ -119,7 +113,7 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -52%);
+  transform: translate(-50%, -60%);
   font-size: 2rem;
   font-weight: 600;
 }

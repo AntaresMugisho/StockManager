@@ -2,9 +2,6 @@
 
 @use "../utils/mixins" as mx;
 
-.progress-container{
-    @include mx.flex_center;
-}
 
 .progress-card{
     @include mx.flex_center(column);
@@ -13,7 +10,7 @@
     border:1px solid gray;
     border-radius:8px;
     padding:16px;
-    
+    background-color: rgba(197, 239, 255, 0.253);
 
     margin: 0 12px; // Must be deleted
 
@@ -40,7 +37,7 @@
         position:absolute;
         top:50%;
         left:50%;
-        transform: translate(-50%, -52%);
+        transform: translate(-50%, -60%);
         font-size: 2rem;
         font-weight: 600;
     }
