@@ -73,4 +73,41 @@ html {
   font-weight: bold;
   padding-top: 20%;
   color: #004586;
+}
+
+.progress-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 8px;
+  width: clamp(100px, 100%, 300px);
+  margin: 0 12px;
+}
+.progress-card svg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.progress-card svg circle {
+  fill: none;
+  stroke-width: 16px;
+  stroke-dasharray: 440px;
+  stroke-linecap: round;
+}
+.progress-card svg circle:nth-child(1) {
+  stroke: rgb(212, 212, 212);
+  stroke-dashoffset: 0;
+}
+.progress-card svg circle:nth-child(2) {
+  stroke: blueviolet;
+  stroke-dashoffset: 440px;
+  animation: circle 1s forwards;
+}
+@keyframes circle {
+  to {
+    stroke-dashoffset: 220px;
+  }
 }/*# sourceMappingURL=app.css.map */
