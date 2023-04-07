@@ -1,7 +1,0 @@
-
-
-@use "variables" as *;
-
-@function fontSize($key) {
-	@return map-get($font_size, $key);
-}
