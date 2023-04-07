@@ -1,9 +1,7 @@
 
 
 .gauge{
-    width:100%;
-    max-width: 250px;
-    // background-color: rgba(0, 162, 255, 0.658);
+    width:clamp(100px, 100%, 180px);
 
     &-body{
         width:100%;
@@ -41,7 +39,7 @@
         display: flex;
         justify-content: center;
         font-family: sans-serif;
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: bold;
         padding-top: 20%;
         color:#004586;
