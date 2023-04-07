@@ -7,14 +7,22 @@
 
         <title>{{ config('app.name') . " | Dashboard" }}</title>
 
-        <link rel="stylesheet" href="resources/css/app.css">
+        <link rel="stylesheet" href="/css/app.css">
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body>
         <div>
-            <aside>
+            <header class="banner">
+                <h1 class="brand"><span>AR</span> <span>Stock</span></h1>
+                <div class="">
+                    <input type="search" name="search" id="search" placeholder="Chercher dans AR Stock">
+                </div>
+            </header>
 
+            <aside>
+             @include("dashboard.layout.navigation")   
             </aside>
+
 
             <main>
                 {{ $slot }}

@@ -1,11 +1,5 @@
 
 <x-dashboard-layout>
-    <div class="gauge">
-        <div class="gauge-body">
-            <div class="gauge-fill" id="gauge_fill"></div>
-            <div class="gauge-cover" id="gauge_cover">0%</div>
-        </div>
-    </div>
     
     <div class="gauge">
         <div class="gauge-body">
