@@ -24,6 +24,48 @@
                 <span>Articles actifs</span>
             </div>
         </div>
+        <div class="progress-card">
+            <div class="head-icon">
+                <img src="/images/chart.png" alt="">
+            </div>
+            <div class="box">
+                <svg>
+                    <circle cx="75px" cy="75px" r="60px"></circle>
+                    <circle cx="75px" cy="75px" r="60px"></circle>
+                    <defs>
+                        <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="0%">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#000000"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="value"><span>50%</span></div>
+            </div>
+            <div class="label">
+                <span>Articles actifs</span>
+            </div>
+        </div>
+        <div class="progress-card">
+            <div class="head-icon">
+                <img src="/images/chart.png" alt="">
+            </div>
+            <div class="box">
+                <svg>
+                    <circle cx="75px" cy="75px" r="60px"></circle>
+                    <circle cx="75px" cy="75px" r="60px"></circle>
+                    <defs>
+                        <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="0%">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#000000"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="value"><span>50%</span></div>
+            </div>
+            <div class="label">
+                <span>Articles actifs</span>
+            </div>
+        </div>
         
     </div>
     

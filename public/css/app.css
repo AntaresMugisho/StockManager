@@ -76,6 +76,14 @@ html {
   color: #004586;
 }
 
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
 .progress-card {
   display: flex;
   flex-direction: column;
@@ -83,10 +91,10 @@ html {
   align-items: center;
   gap: 16px;
   width: clamp(180px, 100%, 280px);
-  border: 1px solid gray;
+  border: 1px solid #c2c2c2;
   border-radius: 8px;
   padding: 16px;
-  background-color: rgba(197, 239, 255, 0.253);
+  background-color: rgba(197, 239, 255, 0.2549019608);
   margin: 0 12px;
 }
 .progress-card .head-icon img {
@@ -95,7 +103,7 @@ html {
 .progress-card .box {
   border-width: 2px 0 2px 0;
   border-style: solid;
-  border-color: gray;
+  border-color: #c2c2c2;
   padding-bottom: 12px;
   position: relative;
 }
