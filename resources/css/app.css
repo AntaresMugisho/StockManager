@@ -81,9 +81,8 @@ html {
   color: #222222;
 }
 .gauge-label {
-  font-size: 1.4rem;
-  font-family: 600;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 400;
   text-align: center;
   background-color: rgba(255, 68, 0, 0.5);
   padding: 4px 12px;
@@ -152,6 +151,14 @@ html {
   font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 8px;
+}
+
+.app-banner {
+  width: 100%;
+  padding: 4px 8px;
+}
+.app-banner .brand {
+  font-size: 2rem;
 }
 
 .progress-card-container {

@@ -3,6 +3,15 @@
 @use "../../utils/mixins" as mx;
 
 
+.app-banner{
+    width:100%;
+    padding:4px 8px;
+
+    .brand{
+        font-size: 2rem;
+    }
+}
+
 .progress-card-container{
     @include mx.flex_center(column);
     gap:16px;
