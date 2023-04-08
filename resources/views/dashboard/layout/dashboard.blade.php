@@ -14,9 +14,17 @@
     <body>
         <div>
             <header class="app-banner">
-                <h1 class="brand"><span>AR</span> <span>Stock</span></h1>
-                <div class="">
-                    <input type="search" name="search" id="search" placeholder="Chercher dans AR Stock">
+                <h1 class="brand"><span>AR</span><span>Stock</span></h1>
+                <div class="icons-container">
+                    <div class="searchbar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" name="search" id="searchbar" placeholder="Chercher dans AR Stock">
+                        <i class="arrow-icon fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-arrow-down"></i>
+                        <span class="counter">0</span>
+                    </div>
                 </div>
             </header>
 

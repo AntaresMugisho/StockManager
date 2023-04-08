@@ -5,10 +5,44 @@
 
 .app-banner{
     width:100%;
-    padding:4px 8px;
+    padding:8px 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.075);
+    @include mx.flex_center;
+    justify-content: space-between;
 
     .brand{
         font-size: 2rem;
+        text-transform: uppercase;
+
+        span:nth-child(2){
+            color:red;
+            font-weight:400;
+        }
+    }
+
+    .icons-container{
+        @include mx.flex_center;
+        gap:12px;
+    }
+    .cart-icon{
+        position: relative;
+
+        i{
+            font-size: 1.6rem;
+        }
+
+        .counter{
+            width:15px;
+            height: 15px;
+            color:#fff;
+            background-color: red;
+            border-radius: 50%;
+            padding:2px;
+            position:absolute;
+            top:-8px;
+            right:-10px;
+            text-align: center;
+        }
     }
 }
 
