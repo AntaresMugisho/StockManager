@@ -2,79 +2,52 @@
 <x-dashboard-layout>
 
 
-    <div class="progress-container">
+    <div class="progress-card-container">
         <div class="progress-card">
-            <div class="head-icon">
-                <img src="/images/chart.png" alt="">
+            <i class="progress-card-icon fa-solid fa-solid fa-chart-line"></i>
+            <div>
+                <h4 class="progress-card-label">Articles actifs</h4>
+                <p class="progress-card-details">
+                    <span>+250 articles actifs</span><br>
+                    <span>121 articles inactifs</span>
+                </p>
             </div>
-            <div class="box">
-                <svg>
-                    <circle cx="75px" cy="75px" r="60px"></circle>
-                    <circle cx="75px" cy="75px" r="60px"></circle>
-                    <defs>
-                        <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="0%">
-                            <stop offset="0" stop-color="#ffffff"></stop>
-                            <stop offset="1" stop-color="#000000"></stop>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <div class="value"><span>50%</span></div>
-            </div>
-            <div class="label">
-                <span>Articles actifs</span>
-            </div>
+            @include('components.circular_progressbar')
         </div>
+
         <div class="progress-card">
-            <div class="head-icon">
-                <img src="/images/chart.png" alt="">
+            <i class="progress-card-icon fa-solid fa-solid fa-chart-line"></i>
+            <div>
+                <h4 class="progress-card-label">Articles actifs</h4>
+                <p class="progress-card-details">
+                    <span>+250 articles actifs</span><br>
+                    <span>121 articles inactifs</span>
+                </p>
             </div>
-            <div class="box">
-                <svg>
-                    <circle cx="75px" cy="75px" r="60px"></circle>
-                    <circle cx="75px" cy="75px" r="60px"></circle>
-                    <defs>
-                        <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="0%">
-                            <stop offset="0" stop-color="#ffffff"></stop>
-                            <stop offset="1" stop-color="#000000"></stop>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <div class="value"><span>50%</span></div>
-            </div>
-            <div class="label">
-                <span>Articles actifs</span>
-            </div>
+            @include('components.circular_progressbar')
         </div>
+
         <div class="progress-card">
-            <div class="head-icon">
-                <img src="/images/chart.png" alt="">
+            <i class="progress-card-icon fa-solid fa-solid fa-chart-line"></i>
+            <div>
+                <h4 class="progress-card-label">Articles actifs</h4>
+                <p class="progress-card-details">
+                    <span>+250 articles actifs</span><br>
+                    <span>121 articles inactifs</span>
+                </p>
             </div>
-            <div class="box">
-                <svg>
-                    <circle cx="75px" cy="75px" r="60px"></circle>
-                    <circle cx="75px" cy="75px" r="60px"></circle>
-                    <defs>
-                        <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="0%">
-                            <stop offset="0" stop-color="#ffffff"></stop>
-                            <stop offset="1" stop-color="#000000"></stop>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <div class="value"><span>50%</span></div>
-            </div>
-            <div class="label">
-                <span>Articles actifs</span>
-            </div>
+            @include('components.circular_progressbar')
         </div>
-        
     </div>
-    
-    {{-- <div class="gauge">
-        <div class="gauge-body">
-            <div class="gauge-fill" id="gauge_fill"></div>
-            <div class="gauge-cover" id="gauge_cover">0%</div>
+   
+    <div class="gauge-container">
+        <div class="gauge">
+            <div class="gauge-body">
+                <div class="gauge-fill" id="gauge_fill"></div>
+                <div class="gauge-cover" id="gauge_cover">0%</div>
+            </div>
         </div>
-    </div> --}}
+    </div>
 
     <script>
         const gaugeElement = document.querySelector(".gauge");

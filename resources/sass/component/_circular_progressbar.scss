@@ -1,0 +1,40 @@
+
+
+@use "../utils/mixins" as mx;
+
+.circular-progressbar{
+    position:relative;
+
+    svg{
+        width:110px;
+        height:110px;
+    }
+    
+    svg circle{
+        fill:none;
+        stroke: blueviolet;
+        stroke-width: 12px;
+        stroke-dasharray: 284px;
+        stroke-dashoffset: 284px;
+        // stroke-linecap: round;
+        animation: circle 1s forwards;
+
+        @keyframes circle{
+            to{
+                stroke-dashoffset: 142px;
+            }
+        }
+    }
+
+    &-value{
+        @include mx.position_center($translateY:-53%);
+        @include mx.flex_center;
+        width:70px;
+        height:70px;
+        border-radius: 50%;
+        color:#fff;
+        background-color: blueviolet;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+}

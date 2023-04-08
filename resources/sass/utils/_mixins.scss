@@ -1,6 +1,6 @@
 
 
-@use "variables" as *;
+@use "variables" as var;
 
 @mixin fit_background{
     background-repeat:no-repeat;
@@ -28,6 +28,18 @@
         justify-content: center;
         align-items: flex-start; 
     }
+}
+
+
+@mixin position_center($translateX:-50%, $translateY:-50%){
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate($translateX, $translateY);
+}
+
+@mixin progress_colors($color:blueviolet){
+    
 }
 
 @mixin breakpoint($device){
