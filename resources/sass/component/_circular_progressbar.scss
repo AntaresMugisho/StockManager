@@ -17,7 +17,7 @@
         stroke-dasharray: 284px;
         stroke-dashoffset: 284px;
         // stroke-linecap: round;
-        animation: circle 1s forwards;
+        animation: circle .5s forwards;
 
         @keyframes circle{
             to{

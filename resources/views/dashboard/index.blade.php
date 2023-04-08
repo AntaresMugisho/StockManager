@@ -32,7 +32,7 @@
             <div>
                 <h4 class="progress-card-label">Articles actifs</h4>
                 <p class="progress-card-details">
-                    <span>+250 articles actifs</span><br>
+                    <span>250 articles actifs</span><br>
                     <span>121 articles inactifs</span>
                 </p>
             </div>
@@ -46,22 +46,25 @@
                 <div class="gauge-fill" id="gauge_fill"></div>
                 <div class="gauge-cover" id="gauge_cover">0%</div>
             </div>
+            <p class="gauge-label">Articles critiques</p>
         </div>
     </div>
 
     <script>
-        const gaugeElement = document.querySelector(".gauge");
+        const gaugeElement = document.querySelectorAll(".gauge");
 
         function setGaugeValue(gauge, value){
             if (value < 0 || value > 1){
                 return
             }
 
-            gauge.querySelector(".gauge-fill").style.transform = `rotate(${value/2}turn)`
-            gauge.querySelector(".gauge-cover").textContent = `${value*100}%`
+            gauge.forEach(gauge => {
+                gauge.querySelector(".gauge-fill").style.transform = `rotate(${value/2}turn)`
+                gauge.querySelector(".gauge-cover").textContent = `${value*100}%`
+            });
         }
 
-        setGaugeValue(gaugeElement, 0.75)
+        setGaugeValue(gaugeElement, 0.5)
     </script>
 </x-dashboard-layout>
 

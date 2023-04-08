@@ -56,7 +56,7 @@ html {
   left: 0;
   transform-origin: center top;
   transform: rotate(0turn);
-  transition: transform 0.3s ease-out;
+  transition: transform 0.5s ease-out;
 }
 .gauge-cover {
   width: 75%;
@@ -89,7 +89,7 @@ html {
   stroke-width: 12px;
   stroke-dasharray: 284px;
   stroke-dashoffset: 284px;
-  animation: circle 1s forwards;
+  animation: circle 0.5s forwards;
 }
 @keyframes circle {
   to {
@@ -112,14 +112,6 @@ html {
   background-color: blueviolet;
   font-size: 2rem;
   font-weight: 600;
-}
-
-.progress-card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
 }
 
 .progress-card {
@@ -146,4 +138,21 @@ html {
   font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 8px;
+}
+
+.progress-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.gauge-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
 }/*# sourceMappingURL=app.css.map */

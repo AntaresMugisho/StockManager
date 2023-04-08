@@ -2,11 +2,6 @@
 
 @use "../utils/mixins" as mx;
 
-.progress-card-container{
-    @include mx.flex_center(column);
-    gap:16px;
-}
-
 .progress-card{
     @include mx.flex_center;
     gap:16px;
