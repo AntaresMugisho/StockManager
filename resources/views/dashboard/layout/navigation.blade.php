@@ -1,13 +1,17 @@
 
 
-<nav>
+<nav class="dashboard-navigation">
     <ul>
         <li><a href="#">Art</a></li>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Stock</a></li>
-        <li><a href="#">Commandes</a></li>
-        <li><a href="#">Factures</a></li>
-        <li><a href="#">Imprimables</a></li>
+    </ul>
+    <ul>
+        <li><a href="#"><i>#</i> Accueil</a></li>
+        <li><a href="#"><i>#</i> Stock</a></li>
+        <li><a href="#"><i>#</i> Commandes</a></li>
+        <li><a href="#"><i>#</i> Factures</a></li>
+        <li><a href="#"><i>#</i> Imprimables</a></li>
+    </ul>
+    <ul>
         <li><a href="#">Paramètres</a></li>
     </ul>
 </nav>
