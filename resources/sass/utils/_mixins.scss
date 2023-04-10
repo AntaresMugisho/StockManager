@@ -43,7 +43,7 @@
 }
 
 @mixin breakpoint($device){
-    @media screen and (max-width:map-get($breakpoint, $device)){
+    @media screen and (min-width:map-get(var.$breakpoint, $device)){
         @content;
     }
 }

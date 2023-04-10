@@ -164,6 +164,11 @@ html {
   padding: 0 8px 8px;
   width: clamp(270px, 95%, 360px);
 }
+@media screen and (min-width: 699.98px) {
+  .progress-card {
+    flex-direction: column;
+  }
+}
 .progress-card-icon {
   font-size: 4rem;
   font-weight: 600;
