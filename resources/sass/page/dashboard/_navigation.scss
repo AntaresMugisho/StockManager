@@ -4,7 +4,7 @@
 
 .dashboard-navigation{
     position:fixed;
-    top:50px;
+    top:51px;
     left:0;
     height:100vh;
     padding:8px 0;
@@ -16,7 +16,6 @@
 
     &--show{
         transform: translateX(0);
-        z-index:10; 
     }
 
     ul{
@@ -47,18 +46,19 @@
         gap:4px;
         color:#333333;
         padding:0 4px;
+        
+        &-active{
+            border-right:3px solid #ff0000;
+        }
+
+        &:hover{
+            color:rgb(0, 0, 0);
+            background-color: rgba(128, 128, 128, 0.1);
+        }
 
         i{
             font-size: 2.4rem;
         }
 
-        &:hover{
-            color:rgb(255, 0, 0);
-            border-right:3px solid #ff0000;
-        }
-        
-        &-active{
-            border-right:3px solid #ff0000;
-        }
     }
 }
