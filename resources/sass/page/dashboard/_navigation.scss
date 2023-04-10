@@ -1,2 +1,64 @@
 
 
+@use "../../utils/mixins" as mx;
+
+.dashboard-navigation{
+    position:fixed;
+    top:50px;
+    left:0;
+    height:100vh;
+    padding:8px 0;
+    background-color: #fff;
+    z-index: 1;
+
+    transform: translateX(-100%);
+    transition: transform .3s;
+
+    &--show{
+        transform: translateX(0);
+        z-index:10; 
+    }
+
+    ul{
+        @include mx.flex_center(column);
+        gap:16px;
+        list-style-type: none;
+        padding: 8px 0;
+        width:100%;
+
+        li{
+            width:100%;
+        }
+
+        &:nth-child(even){
+            &::before{
+                content:"";
+                width:60%;
+                height:1px;
+                background-color: gray;
+            }
+        }
+
+
+    }
+
+    ul .nav-link{
+        @include mx.flex_center(column);
+        gap:4px;
+        color:#333333;
+        padding:0 4px;
+
+        i{
+            font-size: 2.4rem;
+        }
+
+        &:hover{
+            color:rgb(255, 0, 0);
+            border-right:3px solid #ff0000;
+        }
+        
+        &-active{
+            border-right:3px solid #ff0000;
+        }
+    }
+}

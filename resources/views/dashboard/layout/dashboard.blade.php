@@ -14,7 +14,7 @@
     <body>
         <div>
             <header class="app-banner">
-                <h1 class="brand"><span>AR</span><span>Stock</span></h1>
+                <h1 class="brand"><i class="humburger bi bi-list"></i>&nbsp;&nbsp;<span>AR</span><span>Stock</span></h1>
                 <div class="icons-container">
                     <div class="searchbar">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -29,7 +29,7 @@
             </header>
 
             <aside>
-             {{-- @include("dashboard.layout.navigation")    --}}
+             @include("dashboard.layout.navigation")   
             </aside>
 
             <main>

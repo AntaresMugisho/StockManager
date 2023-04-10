@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css");
 @font-face {
   font-family: CreativeMind;
   src: url(../fonts/creative_mind.woff) format("woff");
@@ -235,4 +236,58 @@ html {
   align-items: center;
   gap: 12px;
   padding: 12px;
+}
+
+.dashboard-navigation {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  height: 100vh;
+  padding: 8px 0;
+  background-color: #fff;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
+.dashboard-navigation--show {
+  transform: translateX(0);
+  z-index: 10;
+}
+.dashboard-navigation ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  list-style-type: none;
+  padding: 8px 0;
+  width: 100%;
+}
+.dashboard-navigation ul li {
+  width: 100%;
+}
+.dashboard-navigation ul:nth-child(even)::before {
+  content: "";
+  width: 60%;
+  height: 1px;
+  background-color: gray;
+}
+.dashboard-navigation ul .nav-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: #333333;
+  padding: 0 4px;
+}
+.dashboard-navigation ul .nav-link i {
+  font-size: 2.4rem;
+}
+.dashboard-navigation ul .nav-link:hover {
+  color: rgb(255, 0, 0);
+  border-right: 3px solid #ff0000;
+}
+.dashboard-navigation ul .nav-link-active {
+  border-right: 3px solid #ff0000;
 }/*# sourceMappingURL=app.css.map */

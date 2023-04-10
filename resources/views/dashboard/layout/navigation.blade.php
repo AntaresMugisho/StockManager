@@ -1,17 +1,17 @@
 
 
 <nav class="dashboard-navigation">
+    {{-- <ul>
+        <li><a href="#" class="nav-link"><i class="bi bi-x"></i></a></li>
+    </ul> --}}
     <ul>
-        <li><a href="#">Art</a></li>
+        <li><a href="#" class="nav-link nav-link-active"><i class="bi bi-house-fill"></i> Accueil</a></li>
+        <li><a href="#" class="nav-link"><i class="fa-solid fa-cubes"></i></i>Stock</a></li>
+        <li><a href="#" class="nav-link"><i class="fa-solid fa-cart-arrow-down"></i> Commandes</a></li>
+        <li><a href="#" class="nav-link"><i class="fa-solid fa-file-invoice-dollar"></i> Factures</a></li>
+        <li><a href="#" class="nav-link"><i class="fa-solid fa-print"></i> Imprimables</a></li>
     </ul>
     <ul>
-        <li><a href="#"><i>#</i> Accueil</a></li>
-        <li><a href="#"><i>#</i> Stock</a></li>
-        <li><a href="#"><i>#</i> Commandes</a></li>
-        <li><a href="#"><i>#</i> Factures</a></li>
-        <li><a href="#"><i>#</i> Imprimables</a></li>
-    </ul>
-    <ul>
-        <li><a href="#">Paramètres</a></li>
+        <li><a href="#" class="nav-link"><i class="fa-solid fa-sliders"></i> Paramètres</a></li>
     </ul>
 </nav>
