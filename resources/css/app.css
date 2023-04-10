@@ -156,12 +156,13 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  justify-content: space-evenly;
   gap: 16px;
   border: 1px solid #c2c2c2;
   border-radius: 8px;
   background-color: rgba(197, 239, 255, 0.2549019608);
   padding: 0 8px 8px;
-  margin: 0 12px;
+  width: clamp(270px, 95%, 360px);
 }
 .progress-card-icon {
   font-size: 4rem;
