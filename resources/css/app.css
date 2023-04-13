@@ -258,6 +258,11 @@ main {
   color: red;
   font-weight: 400;
 }
+@media screen and (min-width: 1024px) {
+  .app-banner .brand i.humburger {
+    display: none;
+  }
+}
 .app-banner .icons-container {
   display: flex;
   flex-direction: row;
@@ -453,6 +458,11 @@ main {
   z-index: 1;
   transform: translateX(-100%);
   transition: transform 0.3s;
+}
+@media screen and (min-width: 1024px) {
+  .dashboard-navigation {
+    transform: translateX(0);
+  }
 }
 .dashboard-navigation--show {
   transform: translateX(0);

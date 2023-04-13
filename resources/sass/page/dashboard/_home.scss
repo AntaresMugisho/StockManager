@@ -43,6 +43,12 @@ main{
             color:red;
             font-weight:400;
         }
+
+        i.humburger{
+            @include mx.breakpoint(large){
+                display: none;
+            }
+        }
     }
 
     .icons-container{
