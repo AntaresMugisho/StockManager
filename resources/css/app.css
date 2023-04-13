@@ -215,6 +215,9 @@ html {
     left: 50%;
     transform: translateX(-50%);
   }
+  .progress-card .circular-progressbar:after {
+    bottom: 0;
+  }
 }
 
 main {
@@ -229,7 +232,7 @@ main {
   main {
     display: flex;
     justify-content: space-evenly;
-    align-items: space-evenly;
+    align-items: center;
   }
 }
 
@@ -296,7 +299,7 @@ main {
 }
 
 .global-container {
-  max-width: 1024px;
+  height: max-content;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 16px;
   margin-top: 16px;
@@ -309,8 +312,7 @@ main {
 }
 @media screen and (min-width: 1024px) {
   .global-container {
-    transition: width 0.3s;
-    width: clamp(700px, 100%, 900px);
+    width: clamp(700px, 80%, 900px);
     margin-left: unset;
     margin-right: unset;
   }
