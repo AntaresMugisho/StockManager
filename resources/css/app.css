@@ -116,12 +116,16 @@ html {
 }
 .gauge-label {
   font-size: 1.2rem;
-  font-weight: 600;
   text-align: center;
   background-color: #fff;
   padding: 4px 12px;
   border-radius: 16px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+@media screen and (min-width: 700px) {
+  .gauge-label {
+    font-weight: 600;
+  }
 }
 
 .circular-progressbar {
@@ -219,6 +223,14 @@ main {
   background-position: center;
   background-size: cover;
   padding-top: 32px;
+  height: 100vh;
+}
+@media screen and (min-width: 1024px) {
+  main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: space-evenly;
+  }
 }
 
 .app-banner {
@@ -274,7 +286,7 @@ main {
 
 .global-container {
   max-width: 1024px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 16px;
   margin-top: 16px;
   padding-bottom: 16px;
@@ -282,6 +294,13 @@ main {
 @media screen and (min-width: 700px) {
   .global-container {
     margin: 32px auto;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .global-container {
+    min-width: 700px;
+    margin-left: unset;
+    margin-right: unset;
   }
 }
 
@@ -351,9 +370,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
-  width: clamp(250px, 100%, 300px);
+  gap: 32px;
   margin: 0 auto;
+}
+@media screen and (min-width: 1024px) {
+  .financial-review {
+    margin: unset;
+  }
 }
 .financial-review h4 {
   font-size: 2rem;
@@ -364,10 +387,23 @@ main {
   justify-content: center;
   align-items: center;
   gap: 32px;
-  width: 100%;
+  width: clamp(120px, 100%, 300px);
+}
+@media screen and (min-width: 700px) {
+  .financial-review ul {
+    flex-direction: row;
+    gap: 12px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .financial-review ul {
+    flex-direction: column;
+    gap: 32px;
+  }
 }
 .financial-review ul li {
   width: 100%;
+  min-width: 120px;
   list-style-type: none;
   font-size: 1.6rem;
   font-weight: 600;
