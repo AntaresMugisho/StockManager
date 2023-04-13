@@ -30,6 +30,7 @@
         @include mx.flex_center;
         gap:12px;
     }
+
     .cart-icon{
         position: relative;
 
@@ -55,10 +56,20 @@
 .progress-card-container{
     @include mx.flex_center(column);
     gap:16px;
+
+    @include mx.breakpoint(medium){
+        flex-direction: row;
+        gap:12px;
+        padding:12px;
+    }
 }
 
 .gauge-container{
     @include mx.flex_center;
     gap:12px;
     padding:12px;
+
+    @include mx.breakpoint(medium){
+        gap:24px;
+    }
 }
