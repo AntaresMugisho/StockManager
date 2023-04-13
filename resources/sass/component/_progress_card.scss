@@ -36,13 +36,18 @@
         @include mx.breakpoint(medium){
             text-align: center;
             order:3;
+        }
+    }
 
-            &::before, &::after{
-                content:"";
-                width:60%;
-                height:4px;
-                background-color: rgb(114, 114, 114);
-            }
+    .circular-progressbar{
+        &::before, &::after{
+            content:"";
+            width:80%;
+            height:2px;
+            background-color:gray;
+            position:absolute;
+            left:50%;
+            transform: translateX(-50%);
         }
     }
 }

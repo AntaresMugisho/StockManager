@@ -32,6 +32,7 @@
         &:nth-child(even){
             &::before{
                 content:"";
+                display: block;
                 width:60%;
                 height:1px;
                 background-color: gray;

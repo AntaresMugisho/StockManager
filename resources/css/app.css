@@ -199,12 +199,15 @@ html {
     text-align: center;
     order: 3;
   }
-  .progress-card-label::before, .progress-card-label::after {
-    content: "";
-    width: 60%;
-    height: 4px;
-    background-color: rgb(114, 114, 114);
-  }
+}
+.progress-card .circular-progressbar::before, .progress-card .circular-progressbar::after {
+  content: "";
+  width: 80%;
+  height: 2px;
+  background-color: gray;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 main {
@@ -323,6 +326,7 @@ main {
 }
 .dashboard-navigation ul:nth-child(even)::before {
   content: "";
+  display: block;
   width: 60%;
   height: 1px;
   background-color: gray;
