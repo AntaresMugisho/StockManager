@@ -1,9 +1,11 @@
 
 
 <nav class="dashboard-navigation">
-    {{-- <ul>
-        <li><a href="#" class="nav-link"><i class="bi bi-x"></i></a></li>
-    </ul> --}}
+    <ul>
+        <li>
+            <a href="#" class="nav-link">@include("components.application-logo")</a>
+        </li>
+    </ul>
     <ul>
         <li><a href="#" class="nav-link nav-link-active"><i class="bi bi-house-fill"></i> Accueil</a></li>
         <li><a href="#" class="nav-link"><i class="fa-solid fa-cubes"></i></i>Stock</a></li>

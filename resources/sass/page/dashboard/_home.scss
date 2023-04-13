@@ -39,6 +39,11 @@ main{
         font-size: 2rem;
         text-transform: uppercase;
 
+        @include mx.breakpoint(large){
+            transition: padding .2s;
+            padding-left:8px;
+        }
+
         span:nth-child(2){
             color:red;
             font-weight:400;

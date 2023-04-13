@@ -254,6 +254,12 @@ main {
   font-size: 2rem;
   text-transform: uppercase;
 }
+@media screen and (min-width: 1024px) {
+  .app-banner .brand {
+    transition: padding 0.2s;
+    padding-left: 8px;
+  }
+}
 .app-banner .brand span:nth-child(2) {
   color: red;
   font-weight: 400;
@@ -450,10 +456,11 @@ main {
 
 .dashboard-navigation {
   position: fixed;
+  top: 0px;
   top: 51px;
   left: 0;
   height: 100vh;
-  padding: 8px 0;
+  padding: 2px 0;
   background-color: #fff;
   z-index: 1;
   transform: translateX(-100%);
@@ -461,6 +468,8 @@ main {
 }
 @media screen and (min-width: 1024px) {
   .dashboard-navigation {
+    top: 0;
+    transition: transform 0.2s;
     transform: translateX(0);
   }
 }
@@ -480,7 +489,7 @@ main {
 .dashboard-navigation ul li {
   width: 100%;
 }
-.dashboard-navigation ul:nth-child(even)::before {
+.dashboard-navigation ul:nth-child(even)::before, .dashboard-navigation ul:nth-child(even)::after {
   content: "";
   display: block;
   width: 60%;
