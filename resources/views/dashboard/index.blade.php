@@ -54,6 +54,17 @@
         </div>
     </div>
 
+    <div class="financial-review">
+        <h4>Fiances</h4>
+        <ul>
+            <li><span class="small">Capital initial</span> $ 1500,00</li>
+            <li><span class="small">Valeur des commandes</span> $ 1500,00</li>
+            <li><span class="small">Valeur de ventes</span> $ 1500,00</li>
+            <li><span class="small">Créances</span> $ 1500,00</li>
+            <li><span class="small">Caisse</span> $ 1500,00</li>
+        </ul>
+    </div>
+
     <script>
         const gaugeElement = document.querySelectorAll(".gauge");
 
