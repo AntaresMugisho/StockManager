@@ -95,11 +95,15 @@ main{
     }
     
     @include mx.breakpoint(large){
-        min-width: 700px;
+        transition: width .3s;
+        width:clamp(700px, 100%, 900px);
         margin-left:unset;
         margin-right:unset;
     }
-    
+
+    // @include mx.breakpoint(xlarge){
+    //     width:1000px;
+    // }
 }
 
 
@@ -166,7 +170,6 @@ main{
 .financial-review{
     @include mx.flex_center(column);
     gap:32px;
-    // width:clamp(250px, 100%, 300px);
     margin:0 auto;
 
     @include mx.breakpoint(large){
@@ -181,6 +184,7 @@ main{
         @include mx.flex_center(column);
         gap:32px;
         width:clamp(120px, 100%, 300px);
+        transition: width .3s;
 
         @include mx.breakpoint(medium){
             flex-direction: row;
@@ -190,6 +194,10 @@ main{
         @include mx.breakpoint(large){
             flex-direction: column;
             gap:32px;
+        }
+
+        @include mx.breakpoint(xlarge){
+            width:300px;
         }
     }
 

@@ -309,7 +309,8 @@ main {
 }
 @media screen and (min-width: 1024px) {
   .global-container {
-    min-width: 700px;
+    transition: width 0.3s;
+    width: clamp(700px, 100%, 900px);
     margin-left: unset;
     margin-right: unset;
   }
@@ -399,6 +400,7 @@ main {
   align-items: center;
   gap: 32px;
   width: clamp(120px, 100%, 300px);
+  transition: width 0.3s;
 }
 @media screen and (min-width: 700px) {
   .financial-review ul {
@@ -410,6 +412,11 @@ main {
   .financial-review ul {
     flex-direction: column;
     gap: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .financial-review ul {
+    width: 300px;
   }
 }
 .financial-review ul li {
