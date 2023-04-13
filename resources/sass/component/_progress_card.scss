@@ -6,18 +6,17 @@
     @include mx.flex_center;
     justify-content: space-evenly;
     gap:16px;
+    width:clamp(250px, 96%, 320px);
     border:1px solid #c2c2c2;
     border-radius:8px;
     background-color: #ffffffb9;
     padding: 16px 8px 8px;
-    width:clamp(250px, 96%, 320px);
     
     @include mx.breakpoint(medium){
         flex-direction: column;
         max-width: 250px;
         text-align: center;
     }
-
 
     &-icon{
         font-size:4rem;
@@ -40,14 +39,16 @@
     }
 
     .circular-progressbar{
-        &::before, &::after{
-            content:"";
-            width:80%;
-            height:2px;
-            background-color:gray;
-            position:absolute;
-            left:50%;
-            transform: translateX(-50%);
+        @include mx.breakpoint(medium){
+            &::before, &::after{
+                content:"";
+                width:80%;
+                height:2px;
+                background-color:gray;
+                position:absolute;
+                left:50%;
+                transform: translateX(-50%);
+            }
         }
     }
 }

@@ -116,11 +116,12 @@ html {
 }
 .gauge-label {
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 600;
   text-align: center;
-  background-color: rgba(255, 68, 0, 0.5);
+  background-color: #fff;
   padding: 4px 12px;
-  border-radius: 6px;
+  border-radius: 16px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .circular-progressbar {
@@ -168,11 +169,11 @@ html {
   align-items: center;
   justify-content: space-evenly;
   gap: 16px;
+  width: clamp(250px, 96%, 320px);
   border: 1px solid #c2c2c2;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.7254901961);
   padding: 16px 8px 8px;
-  width: clamp(250px, 96%, 320px);
 }
 @media screen and (min-width: 700px) {
   .progress-card {
@@ -200,14 +201,16 @@ html {
     order: 3;
   }
 }
-.progress-card .circular-progressbar::before, .progress-card .circular-progressbar::after {
-  content: "";
-  width: 80%;
-  height: 2px;
-  background-color: gray;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+@media screen and (min-width: 700px) {
+  .progress-card .circular-progressbar::before, .progress-card .circular-progressbar::after {
+    content: "";
+    width: 80%;
+    height: 2px;
+    background-color: gray;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 main {
