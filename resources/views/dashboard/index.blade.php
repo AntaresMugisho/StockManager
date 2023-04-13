@@ -1,42 +1,56 @@
 
 <x-dashboard-layout>
 
-
-    <div class="progress-card-container">
-        <div class="progress-card">
-            <i class="progress-card-icon fa-solid fa-solid fa-chart-line"></i>
-            <h4 class="progress-card-label">Articles actifs</h4>
-            @include('components.circular_progressbar')
+    <div class="global-container">
+        <div class="action-bar">
+            <ul class="action-buttons-container">
+                <li>
+                    <a href="#" class="action-button">Ajouter</a>
+                </li>
+                <li>
+                    <a href="#" class="action-button">Commander</a>
+                </li>
+                <li>
+                    <a href="#" class="action-button">Book</a>
+                </li>
+                <li>
+                    <a href="#" class="action-button">Partenaires</a>
+                </li>
+            </ul>
         </div>
-
-        <div class="progress-card">
-            <i class="progress-card-icon fa-solid fa-cubes-stacked"></i>
-            <h4 class="progress-card-label">Volume du stock</h4>
-            @include('components.circular_progressbar')
-        </div>
-
-        <div class="progress-card">
-            <i class="progress-card-icon fa-solid fa-file-invoice-dollar"></i>
-            <h4 class="progress-card-label">Valeur du stock</h4>
-            @include('components.circular_progressbar')
-        </div>
-    </div>
-   
-    <div class="gauge-container">
-        <div class="gauge">
-            <div class="gauge-body">
-                <div class="gauge-fill" id="gauge_fill"></div>
-                <div class="gauge-cover" id="gauge_cover">0%</div>
+        
+        <div class="progress-card-container">
+            <div class="progress-card">
+                <i class="progress-card-icon fa-solid fa-solid fa-chart-line"></i>
+                <h4 class="progress-card-label">Articles actifs</h4>
+                @include('components.circular_progressbar')
             </div>
-            <p class="gauge-label">Articles critiques</p>
-        </div>
-
-        <div class="gauge">
-            <div class="gauge-body">
-                <div class="gauge-fill" id="gauge_fill"></div>
-                <div class="gauge-cover" id="gauge_cover">0%</div>
+            <div class="progress-card">
+                <i class="progress-card-icon fa-solid fa-cubes-stacked"></i>
+                <h4 class="progress-card-label">Volume du stock</h4>
+                @include('components.circular_progressbar')
             </div>
-            <p class="gauge-label">Articles commandés</p>
+            <div class="progress-card">
+                <i class="progress-card-icon fa-solid fa-file-invoice-dollar"></i>
+                <h4 class="progress-card-label">Valeur du stock</h4>
+                @include('components.circular_progressbar')
+            </div>
+        </div>
+        <div class="gauge-container">
+            <div class="gauge">
+                <div class="gauge-body">
+                    <div class="gauge-fill" id="gauge_fill"></div>
+                    <div class="gauge-cover" id="gauge_cover">0%</div>
+                </div>
+                <p class="gauge-label">Articles critiques</p>
+            </div>
+            <div class="gauge">
+                <div class="gauge-body">
+                    <div class="gauge-fill" id="gauge_fill"></div>
+                    <div class="gauge-cover" id="gauge_cover">0%</div>
+                </div>
+                <p class="gauge-label">Articles commandés</p>
+            </div>
         </div>
     </div>
 

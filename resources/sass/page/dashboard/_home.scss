@@ -7,7 +7,12 @@ main{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
+    padding-top:32px;
 }
+
+
+// Header -- Navbar
 .app-banner{
     width:100%;
     padding:8px 16px;
@@ -58,6 +63,54 @@ main{
     }
 }
 
+.global-container{
+    max-width: 1024px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    margin-top: 16px;
+
+    @include mx.breakpoint(medium){
+        margin:32px auto; 
+    }
+    
+}
+
+
+// Action bar
+.action-buttons-container{
+    @include mx.flex_center();
+    gap:16px;
+    justify-content: space-evenly;
+    list-style-type:none;
+    width:40%;
+    background-color: rgb(133, 196, 255);
+    padding: 12px;
+    margin: 0 auto;
+    min-width: max-content;
+    border-top-left-radius:12px;
+    border-top-right-radius:12px;
+    border-bottom: 1px solid #fff;
+    transform: translateY(-92%);
+
+    & li:not(:nth-last-child(1)){
+        padding-right:16px;
+        border-right:1px solid gray;
+    }
+
+    .action-button{
+        color:black;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: color .2s;;
+
+        &:hover{
+            color:blueviolet;
+        }
+    }
+}
+
+
+// Prgress bar container
 .progress-card-container{
     @include mx.flex_center(column);
     gap:16px;

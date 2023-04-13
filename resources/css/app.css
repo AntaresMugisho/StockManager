@@ -218,6 +218,7 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding-top: 32px;
 }
 
 .app-banner {
@@ -269,6 +270,50 @@ main {
   top: -8px;
   right: -10px;
   text-align: center;
+}
+
+.global-container {
+  max-width: 1024px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  margin-top: 16px;
+}
+@media screen and (min-width: 700px) {
+  .global-container {
+    margin: 32px auto;
+  }
+}
+
+.action-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-evenly;
+  list-style-type: none;
+  width: 40%;
+  background-color: rgb(133, 196, 255);
+  padding: 12px;
+  margin: 0 auto;
+  min-width: max-content;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid #fff;
+  transform: translateY(-92%);
+}
+.action-buttons-container li:not(:nth-last-child(1)) {
+  padding-right: 16px;
+  border-right: 1px solid gray;
+}
+.action-buttons-container .action-button {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.action-buttons-container .action-button:hover {
+  color: blueviolet;
 }
 
 .progress-card-container {
