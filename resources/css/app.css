@@ -46,6 +46,11 @@ html {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.125);
   padding: 4px 8px;
 }
+@media screen and (min-width: 700px) {
+  .searchbar {
+    width: clamp(100px, 100%, 250px);
+  }
+}
 .searchbar i {
   font-size: 1.6rem;
 }
@@ -56,6 +61,11 @@ html {
 }
 .searchbar input, .searchbar i.arrow-icon {
   display: none;
+}
+@media screen and (min-width: 700px) {
+  .searchbar input, .searchbar i.arrow-icon {
+    display: block;
+  }
 }
 
 .gauge {
@@ -200,6 +210,12 @@ html {
   align-items: center;
   justify-content: space-between;
   z-index: 100;
+}
+@media screen and (min-width: 700px) {
+  .app-banner {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 .app-banner .brand {
   font-size: 2rem;

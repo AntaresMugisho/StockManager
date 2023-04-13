@@ -11,6 +11,11 @@
     justify-content: space-between;
     z-index: 100;
 
+    @include mx.breakpoint(medium){
+        padding-left:5%;
+        padding-right:5%;
+    }
+
     .brand{
         font-size: 2rem;
         text-transform: uppercase;

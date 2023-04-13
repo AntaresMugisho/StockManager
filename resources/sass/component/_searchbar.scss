@@ -4,12 +4,15 @@
 
 .searchbar{
     @include mx.flex_center;
-    // width:clamp(100px, 100%, 180px);
     width:35px;
     height:35px;
     border-radius: 20px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.125);
     padding:4px 8px;
+
+    @include mx.breakpoint(medium){
+        width:clamp(100px, 100%, 250px);
+    }
 
     i{
         font-size: 1.6rem;
@@ -24,5 +27,9 @@
     
     input, i.arrow-icon{
         display: none;
+
+        @include mx.breakpoint(medium){
+            display: block;
+        }
     }
 }
