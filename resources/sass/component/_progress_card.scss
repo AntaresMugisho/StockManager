@@ -10,10 +10,12 @@
     border-radius:8px;
     background-color: #c5efff41;
     padding: 0 8px 8px;
-    width:clamp(270px, 95%, 360px);
+    width:clamp(250px, 96%, 320px);
     
     @include mx.breakpoint(medium){
         flex-direction: column;
+        padding:16px 0;
+        max-width: 250px;
     }
 
     &-icon{
@@ -29,5 +31,9 @@
         font-size: 1.6rem;
         font-weight: 600;
         margin-bottom: 8px;
+
+        @include mx.breakpoint(medium){
+            text-align: center;
+        }
     }
 }

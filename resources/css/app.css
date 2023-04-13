@@ -162,11 +162,13 @@ html {
   border-radius: 8px;
   background-color: rgba(197, 239, 255, 0.2549019608);
   padding: 0 8px 8px;
-  width: clamp(270px, 95%, 360px);
+  width: clamp(250px, 96%, 320px);
 }
-@media screen and (min-width: 699.98px) {
+@media screen and (min-width: 700px) {
   .progress-card {
     flex-direction: column;
+    padding: 16px 0;
+    max-width: 250px;
   }
 }
 .progress-card-icon {
@@ -181,6 +183,11 @@ html {
   font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 8px;
+}
+@media screen and (min-width: 700px) {
+  .progress-card-label {
+    text-align: center;
+  }
 }
 
 .app-banner {
