@@ -5,37 +5,19 @@
     <div class="progress-card-container">
         <div class="progress-card">
             <i class="progress-card-icon fa-solid fa-solid fa-chart-line"></i>
-            <div>
-                <h4 class="progress-card-label">Articles actifs</h4>
-                <p class="progress-card-details">
-                    <span>Lorem, ipsum dolor.</span><br>
-                    <span>Lorem, ipsum dolor.</span>
-                </p>
-            </div>
+            <h4 class="progress-card-label">Articles actifs</h4>
             @include('components.circular_progressbar')
         </div>
 
         <div class="progress-card">
             <i class="progress-card-icon fa-solid fa-cubes-stacked"></i>
-            <div>
-                <h4 class="progress-card-label">Volume du stock</h4>
-                <p class="progress-card-details">
-                    <span>Lorem, ipsum dolor.</span><br>
-                    <span>Lorem, ipsum dolor.</span>
-                </p>
-            </div>
+            <h4 class="progress-card-label">Volume du stock</h4>
             @include('components.circular_progressbar')
         </div>
 
         <div class="progress-card">
             <i class="progress-card-icon fa-solid fa-file-invoice-dollar"></i>
-            <div>
-                <h4 class="progress-card-label">Valeur du stock</h4>
-                <p class="progress-card-details">
-                    <span>Lorem, ipsum dolor.</span><br>
-                    <span>Lorem, ipsum dolor.</span>
-                </p>
-            </div>
+            <h4 class="progress-card-label">Valeur du stock</h4>
             @include('components.circular_progressbar')
         </div>
     </div>

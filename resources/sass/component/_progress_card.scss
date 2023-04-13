@@ -8,15 +8,16 @@
     gap:16px;
     border:1px solid #c2c2c2;
     border-radius:8px;
-    background-color: #c5efff41;
-    padding: 0 8px 8px;
+    background-color: #ffffffb9;
+    padding: 16px 8px 8px;
     width:clamp(250px, 96%, 320px);
     
     @include mx.breakpoint(medium){
         flex-direction: column;
-        padding:16px 0;
         max-width: 250px;
+        text-align: center;
     }
+
 
     &-icon{
         font-size:4rem;
@@ -34,6 +35,14 @@
 
         @include mx.breakpoint(medium){
             text-align: center;
+            order:3;
+
+            &::before, &::after{
+                content:"";
+                width:60%;
+                height:4px;
+                background-color: rgb(114, 114, 114);
+            }
         }
     }
 }

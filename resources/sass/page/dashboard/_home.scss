@@ -2,7 +2,12 @@
 
 @use "../../utils/mixins" as mx;
 
-
+main{
+    background-image: url("/public/images/bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 .app-banner{
     width:100%;
     padding:8px 16px;
