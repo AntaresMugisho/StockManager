@@ -17,11 +17,10 @@ return new class extends Migration
             $table->foreignId("client_id")->constrained()->cascadeOnDelete();
             // As order, must have a pivot table with articles and their details(price, ...)
             $table->integer("total");
-            $table->integer("discount");
-            $table->integer("paid");
+            $table->integer("discount")->default(0);
+            $table->integer("paid")->default(0);
             $table->timestamps();
             $table->string("status"); // Closed, Open or Alert
-
         });
     }
 
