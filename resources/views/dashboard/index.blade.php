@@ -73,9 +73,9 @@
                 return
             }
 
-            gauge.forEach(gauge => {
-                gauge.querySelector(".gauge-fill").style.transform = `rotate(${value/2}turn)`
-                gauge.querySelector(".gauge-cover").textContent = `${value*100}%`
+            gauge.forEach((gauge, index) => {
+                gauge.querySelector(".gauge-fill").style.transform = `rotate(${value*(index+1)*0.5/2}turn)`
+                gauge.querySelector(".gauge-cover").textContent = `${value*(index+1)*0.5*100}%`
             });
         }
 
