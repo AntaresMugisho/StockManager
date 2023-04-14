@@ -21,7 +21,7 @@ main{
 }
 
 
-// Header -- Navbar
+// Header
 .app-banner{
     width:100%;
     padding:8px 16px;
@@ -83,7 +83,7 @@ main{
     }
 }
 
-.global-container{
+.resume-container{
     // max-width: 1024px;
     height:max-content;
     background-color: rgba(255, 255, 255, 0.4);
@@ -126,6 +126,7 @@ main{
 
     .action-button{
         color:black;
+        background-color: transparent;
         font-size: 1.2rem;
         font-weight: 600;
         transition: color .2s;;

@@ -1,20 +1,20 @@
 
 <x-dashboard-layout>
 
-    <div class="global-container">
+    <div class="resume-container">
         <div class="action-bar">
             <ul class="action-buttons-container">
                 <li>
-                    <a href="#" class="action-button">Ajouter</a>
+                    <button href="#" class="action-button">Ajouter</button>
                 </li>
                 <li>
-                    <a href="#" class="action-button">Commander</a>
+                    <button href="#" class="action-button">Commander</button>
                 </li>
                 <li>
-                    <a href="#" class="action-button">Book</a>
+                    <button href="#" class="action-button">Book</button>
                 </li>
                 <li>
-                    <a href="#" class="action-button">Partenaires</a>
+                    <button href="#" class="action-button">Partenaires</button>
                 </li>
             </ul>
         </div>
