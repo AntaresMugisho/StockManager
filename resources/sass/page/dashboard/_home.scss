@@ -8,15 +8,13 @@ main{
     background-position: center;
     background-size: cover;
 
-    padding-top:32px;
+    padding-top:100px;
     height:100vh;
 
     @include mx.breakpoint(large){
         display: flex;
         justify-content: space-evenly;
-        align-items: center;
-        // align-items: flex-start;
-        // gap:32px;
+        align-items: flex-start;
     }
 }
 
@@ -28,7 +26,9 @@ main{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.075);
     @include mx.flex_center;
     justify-content: space-between;
-    z-index: 100;
+    position:fixed;
+    z-index: 1;
+    background-color: #fff;
 
     @include mx.breakpoint(medium){
         padding-left:5%;
