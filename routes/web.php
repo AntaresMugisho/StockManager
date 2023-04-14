@@ -23,6 +23,10 @@ Route::get('/stock', function () {
     return view('dashboard.stock');
 })->name("dashboard.stock");
 
+Route::get('/orders', function () {
+    return view('dashboard.orders');
+})->name("dashboard.orders");
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
