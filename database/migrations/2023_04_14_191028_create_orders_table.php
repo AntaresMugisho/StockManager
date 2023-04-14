@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string("code")->unique();
             // Articles -> many to many relation
-            $table->integer("unit_purchase_price");
-            $table->integer("unit_selling_price");
             $table->integer("value");
-            $table->integer("supplier"); // Must be foreign key
-            // Quantity & Control must be in pivo table foreach article
+            $table->foreignId("supplier_id");
+            // Quantity & Control must be in pivot table foreach article
             $table->timestamps();
             $table->timestamp("delivered_at")->nullable();
             $table->boolean("closed")->default(false);
