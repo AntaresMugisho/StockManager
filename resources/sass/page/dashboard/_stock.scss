@@ -1,0 +1,32 @@
+
+
+.stock-container{
+    padding-left:100px;
+}
+
+.table-container table{
+    border-collapse:collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 1.4rem;
+
+    thead tr{
+        background-color: rgb(122, 175, 253);
+    }
+
+    tbody tr:nth-child(even){
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    th{
+        text-align: left;
+    }
+
+    th, td{
+        padding:8px;
+    }
+
+    td.currency{
+        text-align: right;
+    }
+}
