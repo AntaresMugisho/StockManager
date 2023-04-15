@@ -14,13 +14,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string("code")->unique();
-            // Articles -> many to many relation
-            $table->integer("value");
             $table->foreignId("supplier_id");
-            // Quantity & Control must be in pivot table foreach article
             $table->timestamps();
             $table->timestamp("delivered_at")->nullable();
-            $table->boolean("closed")->default(false);
+            $table->boolean("validated")->default(false);
         });
     }
 

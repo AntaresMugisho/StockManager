@@ -20,9 +20,7 @@ return new class extends Migration
             $table->integer("unit_selling_price");
             $table->integer("stock");
             $table->integer("minimum_stock");
-            $table->integer("stock_value");
-            $table->integer("benefit");
-            $table->boolean("active");
+            $table->boolean("active")->default(0);
             $table->timestamps();
         });
     }

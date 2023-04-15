@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string("code")->unique();
             $table->foreignId("client_id")->constrained()->cascadeOnDelete();
-            // As order, must have a pivot table with articles and their details(price, ...)
-            $table->integer("total");
             $table->integer("discount")->default(0);
             $table->integer("paid")->default(0);
             $table->timestamps();
