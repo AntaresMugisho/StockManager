@@ -6,6 +6,7 @@ use App\Http\Requests\ArticleStoreRequest;
 use App\Models\Article;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class ArticleController extends Controller
 {
@@ -35,14 +36,14 @@ class ArticleController extends Controller
         $article->update([
             "code" => sprintf("ART-%05d", $article->id)
         ]);
-        
+
         return redirect()->route("article.index")->with("status", "article-stored");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Article $article)
     {
         //
     }
@@ -50,9 +51,9 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Article $article)
     {
-        //
+        return view("dashboard.article.edit", compact("article"));
     }
 
     /**
@@ -60,7 +61,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**

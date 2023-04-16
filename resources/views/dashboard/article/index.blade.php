@@ -28,6 +28,7 @@
                         <th>Valeur du stock</th>
                         <th>Bénéfice attendu</th>
                         <th>Actif</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +46,14 @@
                         <td class="currency">{{ $article->stock *  $article->unit_selling_price }} $</td>
                         <td class="currency">{{ ($article->stock *  $article->unit_selling_price) - ($article->stock *  $article->unit_purchase_price) }} $</td>
                         <td>{{ $article->stock > 0 ? "Oui" : "Non" }}</td>
+                        <td>
+                            <a href="{{ route("article.edit", $article)}}">Mettre à jour</a>
+                            <form action="{{ route("article.destroy", $article) }} method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit">Supprimer</button>
+                            </form>
+                        </td>
                     </tr>          
                     @endforeach
                 </tbody>
