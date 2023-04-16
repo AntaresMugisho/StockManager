@@ -6,6 +6,9 @@
             <p class="dashboard-heading-description">Un oeil sur l'état des articles en stock</p>
         </div>
 
+        
+        <a href="{{ route("article.create") }}">Ajouter un article</a>
+
         @if (session("status") === "article-stored")
             <div class="alert alert-success">L'article a été créé avec succès !</div>
         @endif
@@ -28,111 +31,22 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php($n=1)
+                    @foreach ($articles as $article)
                     <tr>
-                        <td>1</td>
-                        <td>ART-0001</td>
-                        <td>T-shirt Blanc S</td>
-                        <td>Imprimable, 100% coton</td>
-                        <td class="currency">2 $</td>
-                        <td class="currency">3 $</td>
-                        <td>128</td>
-                        <td>12</td>
-                        <td class="currency">384 $</td>
-                        <td class="currency">128 $</td>
-                        <td>Oui</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>ART-0001</td>
-                        <td>T-shirt Blanc S</td>
-                        <td>Imprimable, 100% coton</td>
-                        <td class="currency">2 $</td>
-                        <td class="currency">3 $</td>
-                        <td>128</td>
-                        <td>12</td>
-                        <td class="currency">384 $</td>
-                        <td class="currency">128 $</td>
-                        <td>Oui</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>ART-0001</td>
-                        <td>T-shirt Blanc S</td>
-                        <td>Imprimable, 100% coton</td>
-                        <td class="currency">2 $</td>
-                        <td class="currency">3 $</td>
-                        <td>128</td>
-                        <td>12</td>
-                        <td class="currency">384 $</td>
-                        <td class="currency">128 $</td>
-                        <td>Oui</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>ART-0001</td>
-                        <td>T-shirt Blanc S</td>
-                        <td>Imprimable, 100% coton</td>
-                        <td class="currency">2 $</td>
-                        <td class="currency">3 $</td>
-                        <td>128</td>
-                        <td>12</td>
-                        <td class="currency">384 $</td>
-                        <td class="currency">128 $</td>
-                        <td>Oui</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>ART-0001</td>
-                        <td>T-shirt Blanc S</td>
-                        <td>Imprimable, 100% coton</td>
-                        <td class="currency">2 $</td>
-                        <td class="currency">3 $</td>
-                        <td>128</td>
-                        <td>12</td>
-                        <td class="currency">384 $</td>
-                        <td class="currency">128 $</td>
-                        <td>Oui</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>ART-0001</td>
-                        <td>T-shirt Blanc S</td>
-                        <td>Imprimable, 100% coton</td>
-                        <td class="currency">2 $</td>
-                        <td class="currency">3 $</td>
-                        <td>128</td>
-                        <td>12</td>
-                        <td class="currency">384 $</td>
-                        <td class="currency">128 $</td>
-                        <td>Oui</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>ART-0001</td>
-                        <td>Article avec un nom plus long</td>
-                        <td>Imprimable, 100% coton</td>
-                        <td class="currency">2 $</td>
-                        <td class="currency">3 $</td>
-                        <td>128</td>
-                        <td>12</td>
-                        <td class="currency">384 $</td>
-                        <td class="currency">128 $</td>
-                        <td>Oui</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>ART-0001</td>
-                        <td>T-shirt Blanc S</td>
-                        <td>Imprimable, 100% coton</td>
-                        <td class="currency">2 $</td>
-                        <td class="currency">3 $</td>
-                        <td>128</td>
-                        <td>12</td>
-                        <td class="currency">384 $</td>
-                        <td class="currency">128 $</td>
-                        <td>Oui</td>
-                    </tr>
-          
+                        <td>{{ $n++ }}</td>
+                        <td>{{ $article->code }}</td>
+                        <td>{{ $article->name }}</td>
+                        <td>{{ $article->description }}</td>
+                        <td class="currency">{{ $article->unit_purchase_price }} $</td>
+                        <td class="currency">{{ $article->unit_selling_price }} $</td>
+                        <td>{{ $article->stock }}</td>
+                        <td>{{ $article->minimum_stock }}</td>
+                        <td class="currency">{{ $article->stock *  $article->unit_selling_price }} $</td>
+                        <td class="currency">{{ ($article->stock *  $article->unit_selling_price) - ($article->stock *  $article->unit_purchase_price) }} $</td>
+                        <td>{{ $article->stock > 0 ? "Oui" : "Non" }}</td>
+                    </tr>          
+                    @endforeach
                 </tbody>
             </table>
         </div>
