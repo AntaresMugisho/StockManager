@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        return view("dashboard.article.index");
     }
 
     /**
@@ -30,17 +30,14 @@ class ArticleController extends Controller
      */
     public function store(ArticleStoreRequest $request)
     {   
-        $last_id = Article::insertGetId();
-        dd($last_id);
+        $article = new Article;
+        $article->create($request->validated());
 
-        $validated = $request->safe()->merge([
-            "code" => $article->id,
+        $article->update([
+            "code" => sprintf("ART-%05d", $article->id)
         ]);
 
-        dd($validated);
-        Article::create($validated);
-
-        return redirect()->route("dashboard.index")->with("status", "article-stored");
+        return redirect()->route("article.index")->with("status", "article-stored");
     }
 
     /**

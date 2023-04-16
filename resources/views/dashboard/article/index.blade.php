@@ -6,7 +6,7 @@
             <p class="dashboard-heading-description">Un oeil sur l'état des articles en stock</p>
         </div>
 
-        @if (session("status") === "article-created")
+        @if (session("status") === "article-stored")
             <div class="alert alert-success">L'article a été créé avec succès !</div>
         @endif
 
