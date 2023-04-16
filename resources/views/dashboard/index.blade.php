@@ -6,16 +6,16 @@
             <div class="action-bar">
                 <ul class="action-buttons-container">
                     <li>
-                        <button href="#" class="action-button">Ajouter</button>
+                        <a href="{{ route("article.create")}}" class="action-button">Ajouter</a>
                     </li>
                     <li>
-                        <button href="#" class="action-button">Commander</button>
+                        <a href="#" class="action-button">Commander</a>
                     </li>
                     <li>
-                        <button href="#" class="action-button">Book</button>
+                        <a href="#" class="action-button">Book</a>
                     </li>
                     <li>
-                        <button href="#" class="action-button">Partenaires</button>
+                        <a href="#" class="action-button">Partenaires</a>
                     </li>
                 </ul>
             </div>

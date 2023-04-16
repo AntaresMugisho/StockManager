@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,10 @@ Route::get('/stock', function () {
 Route::get('/orders', function () {
     return view('dashboard.orders');
 })->name("dashboard.orders");
+
+
+// Manage Article ressource
+Route::resource("dashboard/article", ArticleController::class);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

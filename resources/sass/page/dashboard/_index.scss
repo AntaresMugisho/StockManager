@@ -4,6 +4,7 @@
 @forward "home";
 @forward "stock";
 
+@use "../../utils/mixins" as mx;
 
 // Standard styling for all dashboard views
 .dashboard-heading{
@@ -13,6 +14,7 @@
     border-radius: 12px;
     margin-bottom:48px;
     position:relative;
+    
 
     &::after{
         content:"";
@@ -34,4 +36,17 @@
         font-size: 1.6rem;
         font-weight: 300;
     }
+}
+
+.modal{
+    width:100vw;
+    height:100vh;
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: rgb(252, 255, 208);
+    // backdrop-filter: blur(10px);
+    // -webkit-backdrop-filter: blur(10px);
+    z-index:10;
+    @include mx.flex_center;
 }

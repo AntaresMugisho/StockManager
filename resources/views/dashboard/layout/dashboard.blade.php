@@ -33,6 +33,10 @@
             </aside>
 
             <main>
+                {{-- <div class="modal">
+                    {{ $modal }}
+                </div> --}}
+
                 {{ $slot }}
             </main>
         </div>

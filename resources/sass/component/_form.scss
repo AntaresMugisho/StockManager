@@ -1,0 +1,56 @@
+
+
+@use "../utils/mixins" as mx;
+
+.form-container{
+    @include mx.flex_start(column);
+    padding:0 100px;
+
+    h1{
+        margin-bottom:16px;
+    }
+
+    form{
+        background-color: rgba(0, 255, 0, 0.1);
+        width:clamp(260px, 100%, 1000px);
+        padding:32px;
+        border-radius: 16px;
+    }
+
+    .field-container{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap:4px;
+        margin-bottom:16px;
+
+        label{
+            font-size: 1.4rem;
+            font-weight:600;
+        }
+
+        input, textarea{
+            background-color: rgba(255, 255, 255, 0.2);
+            padding:8px;
+            border: 2px solid rgb(9, 114, 0);
+            max-width: 300px;
+            border-radius: 6px;
+
+            &:hover{
+                background-color: rgba(255, 255, 255, 0.4);
+                border-color:rgb(15, 177, 0);
+            }
+        }
+
+        button{
+            font-size: 1.6rem;
+            font-weight: 600;
+            color:#fff;
+            padding:8px;
+            background-color: green;
+            max-width: 300px;
+            border-radius: 6px;
+        }
+    }
+
+}
