@@ -4,6 +4,7 @@
 
         <form action=" {{ route("article.update", $article) }}" method="POST">
             @csrf
+            @method("PATCH")
 
             <div class="field-container">
                 <label for="name">Nom de l'article</label>

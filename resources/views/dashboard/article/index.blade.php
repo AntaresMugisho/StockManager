@@ -13,6 +13,14 @@
             <div class="alert alert-success">L'article a été créé avec succès !</div>
         @endif
 
+        @if (session("status") === "article-updated")
+            <div class="alert alert-success">La mise à jour de l'article a réussi !</div>
+        @endif
+
+        @if (session("status") === "article-deleted")
+            <div class="alert alert-success">L'article a été supprimé définitivement !</div>
+        @endif
+
         <div class="table-container">
             <table>
                 <thead>
@@ -48,7 +56,8 @@
                         <td>{{ $article->stock > 0 ? "Oui" : "Non" }}</td>
                         <td>
                             <a href="{{ route("article.edit", $article)}}">Mettre à jour</a>
-                            <form action="{{ route("article.destroy", $article) }} method="POST">
+
+                            <form action="{{ route("article.destroy", $article) }}" method="POST">
                                 @csrf
                                 @method("DELETE")
                                 <button type="submit">Supprimer</button>
