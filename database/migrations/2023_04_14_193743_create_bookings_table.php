@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string("code");
+            $table->string("code")->nullable();
             $table->boolean("inner");
             $table->foreignId("order_id")->nullable();
             $table->foreignId("invoice_id")->nullable();
