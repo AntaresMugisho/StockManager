@@ -20,10 +20,6 @@ Route::get('/', function () {
 })->name("dashboard.index");
 
 
-Route::get('/stock', function () {
-    return view('dashboard.stock');
-})->name("dashboard.stock");
-
 Route::get('/orders', function () {
     return view('dashboard.orders');
 })->name("dashboard.orders");

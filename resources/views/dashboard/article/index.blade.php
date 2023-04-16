@@ -6,6 +6,10 @@
             <p class="dashboard-heading-description">Un oeil sur l'état des articles en stock</p>
         </div>
 
+        @if (session("status") === "article-created")
+            <div class="alert alert-success">L'article a été créé avec succès !</div>
+        @endif
+
         <div class="table-container">
             <table>
                 <thead>

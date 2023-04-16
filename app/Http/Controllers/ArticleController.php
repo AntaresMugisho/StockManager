@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticleStoreRequest;
+use App\Models\Article;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -25,9 +28,19 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(ArticleStoreRequest $request)
+    {   
+        $last_id = Article::insertGetId();
+        dd($last_id);
+
+        $validated = $request->safe()->merge([
+            "code" => $article->id,
+        ]);
+
+        dd($validated);
+        Article::create($validated);
+
+        return redirect()->route("dashboard.index")->with("status", "article-stored");
     }
 
     /**
