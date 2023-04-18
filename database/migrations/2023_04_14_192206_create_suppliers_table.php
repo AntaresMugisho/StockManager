@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string("code")->unique()->nullable();
             $table->string("name");
             $table->string("email");
-            $table->string("town");
-            $table->string("country");
+            $table->string("town")->nullable();
+            $table->string("country")->nullable();
             $table->timestamps();
         });
     }

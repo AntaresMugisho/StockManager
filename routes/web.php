@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
@@ -26,6 +27,9 @@ Route::resource("dashboard/article", ArticleController::class)->except("show");
 
 // Manage Suppliers
 Route::resource("dashboard/supplier", SupplierController::class);
+
+// Manage Customers
+Route::resource("dashboard/client", ClientController::class);
 
 // Manage Orders
 Route::resource("dashboard/order", OrderController::class);

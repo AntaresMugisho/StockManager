@@ -8,14 +8,17 @@
                     <li>
                         <a href="{{ route("article.create") }}" class="action-button">Ajouter</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#" class="action-button">Commander</a>
                     </li>
                     <li>
                         <a href="#" class="action-button">Book</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="{{ route("supplier.index") }}" class="action-button">Fournisseurs</a>
+                    </li>
+                    <li>
+                        <a href="{{ route("client.index") }}" class="action-button">Clients</a>
                     </li>
                 </ul>
             </div>
