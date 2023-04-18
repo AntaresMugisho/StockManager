@@ -9,16 +9,8 @@
         
         <a href="{{ route("article.create") }}">Ajouter un article</a>
 
-        @if (session("status") === "article-stored")
-            <div class="alert alert-success">L'article a été créé avec succès !</div>
-        @endif
-
-        @if (session("status") === "article-updated")
-            <div class="alert alert-success">La mise à jour de l'article a réussi !</div>
-        @endif
-
-        @if (session("status") === "article-deleted")
-            <div class="alert alert-success">L'article a été supprimé définitivement !</div>
+        @if (session("success"))
+            <div class="alert alert-success">{{ session("success") }}</div>
         @endif
 
         <div class="table-container">
@@ -67,6 +59,8 @@
                     @endforeach
                 </tbody>
             </table>
+
+            {{ $articles->links() }}
         </div>
     </div>
 </x-dashboard-layout>

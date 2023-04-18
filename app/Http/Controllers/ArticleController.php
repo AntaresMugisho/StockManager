@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ArticleStoreRequest;
+use App\Http\Requests\ArticleFormRequest;
 use App\Models\Article;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
@@ -15,8 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
-        return view("dashboard.article.index", compact("articles"));
+        return view("dashboard.article.index", ["articles" => Article::paginate(20)]);
     }
 
     /**
@@ -27,17 +26,18 @@ class ArticleController extends Controller
         return view("dashboard.article.create");
     }
 
+
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ArticleStoreRequest $request)
+    public function store(ArticleFormRequest $request)
     {   
         $article = Article::create($request->validated());
         $article->update([
             "code" => sprintf("ART-%05d", $article->id)
         ]);
 
-        return redirect()->route("article.index")->with("status", "article-stored");
+        return redirect()->route("article.index")->with("success", "L'article a été créé avec succès !");
     }
 
     /**
@@ -59,10 +59,10 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ArticleStoreRequest $request, Article $article)
+    public function update(ArticleFormRequest $request, Article $article)
     {
         $article->update($request->validated());
-        return redirect()->route("article.index")->with("status", "article-updated");
+        return redirect()->route("article.index")->with("success", "La mise à jour de l'article a réussi !");
     }
 
     /**
@@ -71,6 +71,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route("article.index")->with("status", "article-deleted");
+        return redirect()->route("article.index")->with("success", "L'article a été définitivement supprimé");
     }
 }
