@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -20,13 +21,15 @@ Route::get('/', function () {
 })->name("dashboard.index");
 
 
-Route::get('/orders', function () {
-    return view('dashboard.orders');
-})->name("dashboard.orders");
+
+// Manage Articles
+Route::resource("dashboard/article", ArticleController::class)->except("show");
+
+// Manage Orders
+Route::resource("dashboard/order", OrderController::class);
 
 
-// Manage Article ressource
-Route::resource("dashboard/article", ArticleController::class);
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

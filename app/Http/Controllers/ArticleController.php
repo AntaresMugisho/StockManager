@@ -23,7 +23,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view("dashboard.article.create");
+        return view("dashboard.article.create", [
+            "article" => new Article()
+        ]);
     }
 
 
