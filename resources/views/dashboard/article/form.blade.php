@@ -1,9 +1,15 @@
 <x-dashboard-layout>
     <div class="form-container">
-        <h1>Créer un nouvel article</h1>
 
-        <form action=" {{ route("article.store") }}" method="POST">
+        {{-- @php
+        $article_exists = $article->exists
+        @endphp --}}
+
+        <h1>{{ $article->exists ? "Modifier l'article" : "Créer un nouvel article" }}</h1>
+
+        <form action=" {{ route( $article->exists ? "article.update" : "article.store", $article) }}" method="POST">
             @csrf
+            @method($article->exists ? "PATCH" : "POST")
 
             @php
             $fields = [
@@ -27,7 +33,7 @@
                     "type" => "number"
                 ],
                 "minimum_stock" => [
-                    "label" => "Prix de vente unitaire",
+                    "label" => "Stock minimum",
                     "type"  => "number"
                 ],
             ];
@@ -37,11 +43,11 @@
                 @foreach ($properties as $key => $value)
                     @php($properties[$key] = $value)
                 @endforeach
-                @include("shared.input", array_merge(["name" => $name], $properties))
+                @include("shared.input", array_merge(["name" => $name, "value" => $article->$name], $properties))
             @endforeach
 
             <div class="field-container">
-                <button type="submit">Créer</button>
+                <button type="submit">{{ $article->exists ? "Mettre à jour" : "Créer" }}</button>
             </div>
         </form>
     </div>

@@ -23,7 +23,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view("dashboard.article.create", [
+        return view("dashboard.article.form", [
             "article" => new Article()
         ]);
     }
@@ -55,7 +55,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view("dashboard.article.edit", compact("article"));
+        return view("dashboard.article.form", compact("article"));
     }
 
     /**
