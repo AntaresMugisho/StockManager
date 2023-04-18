@@ -1,9 +1,7 @@
+
+
 <x-dashboard-layout>
     <div class="form-container">
-
-        {{-- @php
-        $article_exists = $article->exists
-        @endphp --}}
 
         <h1>{{ $article->exists ? "Modifier l'article" : "Créer un nouvel article" }}</h1>
 

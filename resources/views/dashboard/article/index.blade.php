@@ -47,7 +47,7 @@
                         <td class="currency">{{ ($article->stock *  $article->unit_selling_price) - ($article->stock *  $article->unit_purchase_price) }} $</td>
                         <td>{{ $article->stock > 0 ? "Oui" : "Non" }}</td>
                         <td>
-                            <a href="{{ route("article.edit", $article)}}">Mettre à jour</a>
+                            <a href="{{ route("article.edit", $article)}}">Modifier</a>
 
                             <form action="{{ route("article.destroy", $article) }}" method="POST">
                                 @csrf

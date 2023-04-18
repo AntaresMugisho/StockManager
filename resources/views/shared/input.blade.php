@@ -1,10 +1,11 @@
+
+
 @php
     $type ??= "text";
     $name ??= null;    
     $label ??= null;
     $value ??= null;
 @endphp
-
 
 <div class="field-container">
     <label for="{{ $name }}">{{ $label }}</label>
