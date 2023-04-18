@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +21,14 @@ Route::get('/', function () {
     return view('dashboard.index');
 })->name("dashboard.index");
 
-
-
 // Manage Articles
 Route::resource("dashboard/article", ArticleController::class)->except("show");
 
+// Manage Suppliers
+Route::resource("dashboard/supplier", SupplierController::class);
+
 // Manage Orders
 Route::resource("dashboard/order", OrderController::class);
-
 
 
 

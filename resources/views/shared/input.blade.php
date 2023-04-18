@@ -13,7 +13,7 @@
     @if ($type == "textarea")
         <textarea name="{{ $name }}" id="{{ $name }}">{{ old($name, $value) }}</textarea>
     @else
-        <input class="{{ $name }}@error($name) is-invalid @enderror" type="{{ $type }}" {{$type == 'number' ? "min=0 step=any" : null}} name="{{ $name }}" id="{{ $name }}" value="{{ old($name, $value) }}" required>
+        <input class="{{ $name }}@error($name) is-invalid @enderror" type="{{ $type }}" {{$type == 'number' ? "min=0 step=any" : null}} name="{{ $name }}" id="{{ $name }}" value="{{ old($name, $value) }}">
     @endif
 
     @error($name)

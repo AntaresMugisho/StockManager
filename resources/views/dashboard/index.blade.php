@@ -6,7 +6,7 @@
             <div class="action-bar">
                 <ul class="action-buttons-container">
                     <li>
-                        <a href="{{ route("article.create")}}" class="action-button">Ajouter</a>
+                        <a href="{{ route("article.create") }}" class="action-button">Ajouter</a>
                     </li>
                     <li>
                         <a href="#" class="action-button">Commander</a>
@@ -15,7 +15,7 @@
                         <a href="#" class="action-button">Book</a>
                     </li>
                     <li>
-                        <a href="#" class="action-button">Partenaires</a>
+                        <a href="{{ route("supplier.index") }}" class="action-button">Fournisseurs</a>
                     </li>
                 </ul>
             </div>
