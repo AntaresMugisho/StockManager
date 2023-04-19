@@ -20,8 +20,8 @@ class ClientFactory extends Factory
 
         return [
             "code" => sprintf("CLT-%05d", $random_code),
-            "name" => ucfirst(fake()->words(2, true)),
-            "email" => fake()->sentence(),
+            "name" => fake()->name(),
+            "email" => fake()->safeEmail(),
             "town" => fake()->city(),
             "country" => fake()->country(),
         ];

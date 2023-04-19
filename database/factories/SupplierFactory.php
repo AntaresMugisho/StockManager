@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class SuplierFactory extends Factory
+class SupplierFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,8 +20,8 @@ class SuplierFactory extends Factory
 
         return [
             "code" => sprintf("FRN-%05d", $random_code),
-            "name" => ucfirst(fake()->words(2, true)),
-            "email" => fake()->sentence(),
+            "name" => fake()->name(),
+            "email" => fake()->safeEmail(),
             "town" => fake()->city(),
             "country" => fake()->country(),
         ];
