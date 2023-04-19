@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Order;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -19,8 +21,15 @@ class OrderController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view("dashboard.order.form", ["order" => new Order()]);
+    {   
+        $suppliers = Supplier::all();
+        $articles = Article::all();
+
+        return view("dashboard.order.form", [
+            "order" => new Order(),
+            "suppliers" => $suppliers,
+            "articles" => $articles,
+        ]);
     }
 
     /**
