@@ -35,9 +35,7 @@ class ArticleController extends Controller
     public function store(ArticleFormRequest $request)
     {   
         $article = Article::create($request->validated());
-        $article->update([
-            "code" => sprintf("ART-%05d", $article->id)
-        ]);
+        $article->setCode();
 
         return redirect()->route("article.index")->with("success", "L'article a été créé avec succès !");
     }

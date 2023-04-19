@@ -34,9 +34,7 @@ class SupplierController extends Controller
     public function store(SupplierFormRequest $request)
     {
         $supplier = Supplier::create($request->validated());
-        $supplier->update(
-            ["code" => sprintf("FRN-%05d", $supplier->id)]
-        );
+        $supplier->setCode();
         return redirect()->route("supplier.index")->with("success", "Le fournisseur a été ajouté avec succès !");
     }
 
