@@ -10,4 +10,11 @@ class Article extends Model
     use HasFactory;
 
     protected $guarded = ["id"];
+
+    public function setCode() : void
+    {
+        $this->update([
+            "code" => sprintf("ART-%05d", $this->id) 
+        ]);
+    }
 }

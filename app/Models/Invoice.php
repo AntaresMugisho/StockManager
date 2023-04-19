@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use HasFactory;
+
+    public function setCode() : void
+    {
+        $this->update([
+            "code" => sprintf("FCT-%05d", $this->id) 
+        ]);
+    }
 }

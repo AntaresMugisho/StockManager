@@ -10,4 +10,11 @@ class Supplier extends Model
     use HasFactory;
 
     protected $guarded = ["id"];
+
+    public function setCode() : void
+    {
+        $this->update([
+            "code" => sprintf("FRN-%05d", $this->id) 
+        ]);
+    }
 }

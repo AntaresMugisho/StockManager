@@ -7,7 +7,7 @@
         </div>
 
         
-        <a href="{{ route("order.create") }}">Commander eun article</a>
+        <a href="{{ route("order.create") }}">Passer une commande</a>
 
         @if (session("success"))
             <div class="alert alert-success">{{ session("success") }}</div>

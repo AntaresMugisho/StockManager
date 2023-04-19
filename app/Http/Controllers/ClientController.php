@@ -34,9 +34,7 @@ class ClientController extends Controller
     public function store(ClientFormRequest $request)
     {
         $client = Client::create($request->validated());
-        $client->update(
-            ["code" => sprintf("CLT-%05d", $client->id)]
-        );
+        $client->setCode();
         return redirect()->route("client.index")->with("success", "Le client a été ajouté avec succès !");
     }
 
