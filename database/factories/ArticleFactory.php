@@ -16,9 +16,9 @@ class ArticleFactory extends Factory
      */
     public function definition(): array
     {   
-        $random_number = fake()->random_int()->unique();
+        $random_number = fake()->unique()->randomNumber(2);
         $purchase_price = fake()->numberBetween(1, 3);
-        $stock = fake()->numberBetween(0, 20);
+        $stock = fake()->numberBetween(0, 160);
 
         return [
             "code" => sprintf("ART-%05d", $random_number),
@@ -26,7 +26,8 @@ class ArticleFactory extends Factory
             "description" => fake()->sentence(),
             "unit_purchase_price" => $purchase_price,
             "unit_selling_price" => fake()->numberBetween(1, $purchase_price),
-            "minimum_stock" => $stock,
+            "stock" => $stock,
+            "minimum_stock" => fake()->numberBetween(0, 20),
             "active" => $stock > 0,
         ];
     }
