@@ -3,21 +3,21 @@
 <x-dashboard-layout>
     <div class="form-container">
 
-        <h1>{{ $order->exists ? "Modifier la commande" : "Passer une nouvelle commande" }}</h1>
+        <h1>Passer une nouvelle commande </h1>
 
 
         <form action=" {{ route("cart.store") }}" method="POST">
             @csrf
-            @method($order->exists ? "PATCH" : "POST")
             
-       
             <div class="form-block">
                 <div class="field-container">
                     <label for="supplier">Fournisseur</label>
-                    <select>
+                    <select name="supplier" id="supplier">
                         <option value="">Choisir...</option>
                         @foreach ($suppliers as $supplier)
-                            <option name="supplier" id="supplier" value="value">{{ $supplier->code }} : {{ $supplier->name }}</option>
+                            <option value="{{ $supplier->code }}" {{ old("supplier") == $supplier->code ? "selected" : "" }}>
+                                {{ $supplier->code }} : {{ $supplier->name }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
@@ -29,7 +29,7 @@
                     <select name="article" id="article">
                         <option value="">Choisir...</option>
                         @foreach ($articles as $article)
-                            <option value="{{ $article->code}}">{{ $article->code}} : {{ $article->name }}</option>
+                            <option value="{{ $article->code }}" {{ old("article") == $article->code ? "selected" : "" }}>{{ $article->code}} : {{ $article->name }}</option>
                         @endforeach
                     </select>
                 </div>
