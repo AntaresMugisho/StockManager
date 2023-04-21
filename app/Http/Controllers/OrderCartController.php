@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddArticleToCartFormRequest;
+use App\Models\Article;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class OrderCartController extends Controller
@@ -25,10 +28,18 @@ class OrderCartController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddArticleToCartFormRequest $request)
     {
+        $validated = $request->validated();
         
-        dd($request);
+        $article = Article::where("code", $validated["article"])->first();
+        
+        Cart::add([
+            "id" => $article->code,
+            "name" => $article->name,
+            "qty" => $validated["quantity"],
+            "price" => $article->unit_purchase_price,
+        ])->associate(Article::class);
     }
 
     /**
