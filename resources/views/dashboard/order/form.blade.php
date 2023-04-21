@@ -70,7 +70,7 @@
                         <td>{{ $article->code }}</td>
                         <td>{{ $article->name }}</td>
                         <td>{{ $item->qty }}</td>
-                        <td>{{ $article->unit_purchase_price }}</td>
+                        <td>{{ $article->unit_purchase_price }} $</td>
                         <td>{{ $item->qty * $article->unit_purchase_price }} $</td>
                         <td>
                             <form action="{{ route("cart.destroy", $item->rowId) }}" method="POST">

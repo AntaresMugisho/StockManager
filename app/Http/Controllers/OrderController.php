@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderFormRequest;
 use App\Models\Order;
 use App\Models\Article;
 use App\Models\Supplier;
@@ -36,9 +37,15 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OrderFormRequest $request)
     {
-        Cart::store();
+        $validated = $request->validated();
+        Cart::store($validated["supplier"]);
+
+        $supplier = Supplier::where("code", $validated["supplier"])->first();
+        
+
+        return redirect()->route("order.index")->with("success", "La commande a été sauvegardée avec succès !");
     }
 
     /**
