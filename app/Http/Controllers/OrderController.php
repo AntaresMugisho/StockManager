@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
 use App\Models\Order;
+use App\Models\Article;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class OrderController extends Controller
 {
@@ -37,7 +38,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        
+        Cart::store();
     }
 
     /**

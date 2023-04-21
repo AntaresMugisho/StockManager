@@ -9,25 +9,6 @@
             @csrf
             
             <div class="form-block">
-                <div class="field-container">
-                    <label for="supplier">Fournisseur</label>
-
-                    <select name="supplier" id="supplier">
-                        <option value="">Choisir...</option>
-                        @foreach ($suppliers as $supplier)
-                            <option value="{{ $supplier->code }}" {{ old("supplier") == $supplier->code ? "selected" : "" }}>
-                                {{ $supplier->code }} : {{ $supplier->name }}
-                            </option>
-                        @endforeach
-                    </select>
-
-                    @error("supplier")
-                        <small>{{ $message }}</small>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="form-block">
                 
                 <div class="field-container">
                     <label for="article">Article</label>
@@ -109,6 +90,26 @@
 
         <form action="{{route("order.store")}}" class="" method="POST">
             @csrf
+         
+            <div class="field-container">
+                <label for="supplier">Fournisseur</label>
+
+                <select name="supplier" id="supplier">
+                    <option value="">Choisir...</option>
+                    @foreach ($suppliers as $supplier)
+                        <option value="{{ $supplier->code }}" {{ old("supplier") == $supplier->code ? "selected" : "" }}>
+                            {{ $supplier->code }} : {{ $supplier->name }}
+                        </option>
+                    @endforeach
+                </select>
+
+                @error("supplier")
+                    <small>{{ $message }}</small>
+                @enderror
+            </div>
+        
+            <div class="field-container">
+                <button type="submit">Sauvegarder la commande</button></div>
         </form>
     </div>
 </x-dashboard-layout>
