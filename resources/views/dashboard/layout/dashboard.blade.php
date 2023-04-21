@@ -23,7 +23,7 @@
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-arrow-down"></i>
-                        <span class="counter">0</span>
+                        <span class="counter">{{ Cart::content()->count() }}</span>
                     </div>
                 </div>
             </header>
