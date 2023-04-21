@@ -35,11 +35,13 @@ class OrderCartController extends Controller
         $article = Article::where("code", $validated["article"])->first();
         
         Cart::add([
-            "id" => $article->code,
+            "id" => $article->id,
             "name" => $article->name,
             "qty" => $validated["quantity"],
             "price" => $article->unit_purchase_price,
         ])->associate(Article::class);
+
+        return back()->with("success", "L'article {$article->code} a été ajouté au panier");
     }
 
     /**
@@ -69,8 +71,9 @@ class OrderCartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $rowId)
     {
-        //
+        Cart::remove($rowId);
+        return back()->with("success", "L'article a été rétiré de la commande");
     }
 }

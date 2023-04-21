@@ -58,5 +58,57 @@
                 <button type="submit">Ajouter au panier</button>
             </div>
         </form>
+
+
+        {{-- Order cart --}}
+        @if (session("success"))
+            <div class="alert alert-success">{{ session("success") }}</div>
+        @endif
+
+        <table>
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>ID Article</th>
+                    <th>Nom Article</th>
+                    <th>Quantité</th>
+                    <th>PU</th>
+                    <th>PT</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                    $cartItems = Cart::content();
+                    $n = 1;
+                @endphp
+                @forelse ($cartItems as $item)
+                    @php($article = $item->model)
+                    <tr>
+                        <td>{{ $n++  }}</td>
+                        <td>{{ $article->code }}</td>
+                        <td>{{ $article->name }}</td>
+                        <td>{{ $item->qty }}</td>
+                        <td>{{ $article->unit_purchase_price }}</td>
+                        <td>{{ $item->qty * $article->unit_purchase_price }} $</td>
+                        <td>
+                            <form action="{{ route("cart.destroy", $item->rowId) }}" method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit">Retirer</button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td>Aucun articlé commandé</td>
+                    </tr>
+                @endforelse
+            </tbody>
+         </table>
+
+        <form action="{{route("order.store")}}" class="" method="POST">
+            @csrf
+        </form>
     </div>
 </x-dashboard-layout>
