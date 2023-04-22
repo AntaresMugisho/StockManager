@@ -40,9 +40,27 @@ class OrderController extends Controller
     public function store(OrderFormRequest $request)
     {
         $validated = $request->validated();
-        Cart::store($validated["supplier"]);
-
         $supplier = Supplier::where("code", $validated["supplier"])->first();
+        
+        $cartItems = Cart::content();
+
+        dd($cartItems);
+
+       
+        $order = Order::create();
+        $order->setCode();
+
+        $order->supplier()->associate($supplier);
+        $order->save();
+        
+        foreach ($cartItems as $item){
+            $article = $item->model;
+
+            $order->articles->save($article->id, [
+                "price" => $article->unit_purchase_price,
+                "quantity_ordered" => $item->qty,
+            ]);
+        }
         
 
         return redirect()->route("order.index")->with("success", "La commande a été sauvegardée avec succès !");

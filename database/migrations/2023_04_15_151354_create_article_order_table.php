@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('article_order', function (Blueprint $table) {
             $table->foreignId("order_id");
             $table->foreignId("article_id");
-            $table->integer("unit_purchase_amount");
+            $table->integer("price");
             $table->integer("quantity_ordered");
-            $table->string("quantity_delivered");
+            $table->string("quantity_delivered")->nullable();
+            
             $table->primary(["order_id", "article_id"]);
         });
     }
