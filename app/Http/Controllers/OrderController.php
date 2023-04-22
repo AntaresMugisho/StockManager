@@ -43,9 +43,6 @@ class OrderController extends Controller
         $supplier = Supplier::where("code", $validated["supplier"])->first();
         
         $cartItems = Cart::content();
-
-        dd($cartItems);
-
        
         $order = Order::create();
         $order->setCode();
@@ -56,12 +53,11 @@ class OrderController extends Controller
         foreach ($cartItems as $item){
             $article = $item->model;
 
-            $order->articles->save($article->id, [
+            $order->articles->attach($article->id, [
                 "price" => $article->unit_purchase_price,
                 "quantity_ordered" => $item->qty,
             ]);
         }
-        
 
         return redirect()->route("order.index")->with("success", "La commande a été sauvegardée avec succès !");
     }

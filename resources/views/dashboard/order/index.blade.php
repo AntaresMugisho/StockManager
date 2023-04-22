@@ -34,10 +34,10 @@
                     <tr>
                         <td>{{ $n++ }}</td>
                         <td>{{ $order->code }}</td>
-                        <td>{{ $order->supplier }}</td>
+                        <td>{{ $order->supplier->name }}</td>
                         <td>{{ $order->created_at }}</td>
-                        <td>{{ $order->delivered_at }}</td>
-                        <td>{{ $order->quantity }}</td>
+                        <td>{{ $order->delivered_at ?? "-"}}</td>
+                        {{-- <td>{{ $order->quantity }}</td> --}}
                         <td>{{ "Non"}}</td>
                         <td>{{ $order->cost }}</td>
                         <td>
