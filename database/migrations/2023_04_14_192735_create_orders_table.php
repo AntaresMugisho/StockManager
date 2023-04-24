@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string("code")->unique()->nullable();
-            $table->foreignId("supplier_id")->nullable();
+            $table->foreignId("supplier_id")->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
             $table->timestamp("delivered_at")->nullable();
             $table->boolean("validated")->default(false);

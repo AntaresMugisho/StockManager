@@ -40,16 +40,11 @@ class OrderController extends Controller
     public function store(OrderFormRequest $request)
     {
         $validated = $request->validated();
+        
+        $order = Order::create();
+        $order->setCode();
+        
         $supplier = Supplier::where("code", $validated["supplier"])->first();
-        
-        
-        // $order = Order::create();
-        // $order->setCode();
-        
-        $order = new Order;
-        $order->save();
-        // dd($order->id);
-        $order->code = sprintf("ORD-%05d", $order->id);
         $order->supplier()->associate($supplier);
         $order->save();
         

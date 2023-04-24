@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string("code")->nullable();
+            $table->string("code")->unique()->nullable();
             $table->boolean("inner");
-            $table->foreignId("order_id")->nullable();
-            $table->foreignId("invoice_id")->nullable();
+            $table->foreignId("order_id")->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId("invoice_id")->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
