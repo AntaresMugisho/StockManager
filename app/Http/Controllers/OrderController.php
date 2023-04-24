@@ -42,22 +42,28 @@ class OrderController extends Controller
         $validated = $request->validated();
         $supplier = Supplier::where("code", $validated["supplier"])->first();
         
-        $cartItems = Cart::content();
-       
-        $order = Order::create();
-        $order->setCode();
-
+        
+        // $order = Order::create();
+        // $order->setCode();
+        
+        $order = new Order;
+        $order->save();
+        // dd($order->id);
+        $order->code = sprintf("ORD-%05d", $order->id);
         $order->supplier()->associate($supplier);
         $order->save();
         
+        $cartItems = Cart::content();
         foreach ($cartItems as $item){
             $article = $item->model;
 
-            $order->articles->attach($article->id, [
+            $order->articles()->attach($article->id, [
                 "price" => $article->unit_purchase_price,
                 "quantity_ordered" => $item->qty,
             ]);
         }
+
+        Cart::destroy();
 
         return redirect()->route("order.index")->with("success", "La commande a été sauvegardée avec succès !");
     }
