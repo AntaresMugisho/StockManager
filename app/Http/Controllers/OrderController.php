@@ -8,7 +8,6 @@ use App\Models\Supplier;
 use Illuminate\Http\Request;
 use App\Http\Requests\OrderFormRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\Http\Requests\AddArticleToCartFormRequest;
 
 class OrderController extends Controller
 {

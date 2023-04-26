@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\OrderCartController;
+use App\Http\Controllers\InvoiceCartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,11 @@ Route::prefix("dashboard")->group(function(){
 
     // Manage Invoice Cart
     Route::resource("invoice/cart", InvoiceCartController::class, ["as" => "invoice"])->only(["store", "destroy"]);
+
+    // --------------------------------------------------------------------------------------------------------
+    
+    //Manage Bookings
+    Route::resource("booking", BookingController::class);
 });
 
 
