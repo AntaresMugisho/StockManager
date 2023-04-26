@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Invoice extends Model
 {
     use HasFactory;
 
+    // Setters --------------------------------------
 
     public function setCode(): void
     {
@@ -18,6 +20,9 @@ class Invoice extends Model
             "code" => sprintf("FCT-%05d", $this->id) 
         ]);
     }
+
+
+    // Relationships----------------------------------
 
     public function client(): BelongsTo
     {
@@ -29,6 +34,14 @@ class Invoice extends Model
         return $this->belongsToMany(Article::class)
                     ->withPivot(["unit_selling_price", "quantity"]);
     }
+
+    public function booking(): HasOne
+    {
+        return $this->hasOne(Booking::class);
+    }
+
+
+    // Getters ----------------------------------------
 
     public function getTotalAttribute(): float
     {

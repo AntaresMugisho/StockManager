@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 // use App\Models\Supplier;
 
@@ -16,6 +17,7 @@ class Order extends Model
 
     protected $guarded = ["id"];
 
+    // Setters --------------------------------------
     
     public function setCode() : void
     {
@@ -24,6 +26,7 @@ class Order extends Model
         ]);
     }
 
+    // Relationships ----------------------------------
 
     public function supplier(): BelongsTo
     {
@@ -37,6 +40,12 @@ class Order extends Model
                     ->withPivot(["price", "quantity_ordered", "quantity_delivered"]);
     }
 
+    public function booging(): HasOne
+    {
+        return $this->hasOne(Booking::class);
+    }
+
+    // Getters ----------------------------------------
 
     public function getValueAttribute(): float
     {

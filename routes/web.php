@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
