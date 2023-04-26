@@ -3,45 +3,53 @@
 <x-dashboard-layout>
     <div class="form-container">
 
-        <h1>Passer une nouvelle commande </h1>
+        <h1>Nouveau mouvement</h1>
 
-        <form action=" {{ route("order.cart.store") }}" method="POST">
+        <form action=" {{ route("booking.store") }}" method="POST">
             @csrf
             
-            <div class="form-block">
-                
+            <div class="">
+                <p>Type de mouvement</p>
                 <div class="field-container">
-                    <label for="article">Article</label>
+                    <input type="radio" name="booking" id="inner_booking" value="inner_booking">
+                    <label for="inner">Entrée</label>
 
-                    <select name="article" id="article">
-                        <option value="">Choisir...</option>
-                        @foreach ($articles as $article)
-                            <option value="{{ $article->code }}" {{ old("article") == $article->code ? "selected" : "" }}>{{ $article->code}} : {{ $article->name }}</option>
-                        @endforeach
-                    </select>
+                    <input type="radio" name="booking" id="outer_booking" value="outer_booking">
+                    <label for="inner">Sortie</label>
 
-                    @error("article")
+                    @error("booking")
                         <small>{{ $message }}</small>
                     @enderror
                 </div>
-
-                <div class="field-container">
-                    <label for="quantity">Quantité</label>
-                    <input type="number" name="quantity" id="quantity" value="{{ old("quantity") }}">
-                    @error("quantity")
-                        <small>{{ $message }}</small>
-                    @enderror
-                </div>
-
             </div>
 
+            {{-- If inner is checked --}}
+            <p>Invantaire</p>
+
+            <div class="field-containr">
+                <label for="order">Commande</label>
+                <select name="order" id="order">
+                    <option value="">Choisir la commande concernée...</option>
+                    @foreach ($orders as $order)
+                        <option value="{{ $order->code }}" {{ old("order") == $order->code ? "selected" : null }}>{{ $order->code . " : " . $order->supplier->name }}</option>
+                    @endforeach
+                </select>
+                @error("order")
+                    <small>{{ $message }}</small>
+                @enderror
+            </div>
+
+           <table>
+            
+           </table>
+
             <div class="field-container">
-                <button type="submit">Ajouter au panier</button>
+                <button type="submit">Inventorier or Valider</button>
             </div>
         </form>
 
 
-        {{-- Order cart --}}
+        {{-- Order cart
         @if (session("success"))
             <div class="alert alert-success">{{ session("success") }}</div>
         @endif
@@ -110,6 +118,6 @@
         
             <div class="field-container">
                 <button type="submit">Sauvegarder la commande</button></div>
-        </form>
-    </div>
+        </form> --}}
+    </div> 
 </x-dashboard-layout>

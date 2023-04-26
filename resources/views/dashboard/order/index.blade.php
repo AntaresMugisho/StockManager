@@ -2,7 +2,7 @@
     
     <div class="stock-container">
         <div class="dashboard-heading">
-            <h2 class="dashboard-heading-title">Suivie du stock</h2>
+            <h2 class="dashboard-heading-title">Suivie des commandes</h2>
             <p class="dashboard-heading-description">Un oeil sur l'état des commandes</p>
         </div>
         
