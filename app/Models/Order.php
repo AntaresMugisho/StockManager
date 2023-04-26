@@ -38,7 +38,7 @@ class Order extends Model
     }
 
 
-    public function value(): float
+    public function getValueAttribute(): float
     {
         $value = 0;
         foreach ($this->articles as $article){
@@ -49,7 +49,7 @@ class Order extends Model
     }
 
 
-    public function orderedQuantity(): int
+    public function getOrderedQuantityAttribute(): int
     {
         $quantity = 0;
         foreach ($this->articles as $article){
@@ -60,7 +60,7 @@ class Order extends Model
     }
 
 
-    public function deliveredQuantity(): int
+    public function getDeliveredQuantityAttribute(): int
     {
         $quantity = 0;
         foreach ($this->articles as $article){
@@ -71,8 +71,8 @@ class Order extends Model
     }
 
     
-    public function validated(): bool
+    public function getValidatedAttribute(): bool
     {
-        return ($this->deliveredQuantity() >= $this->orderedQuantity());
+        return ($this->deliveredQuantity >= $this->orderedQuantity );
     }
 }
