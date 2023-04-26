@@ -31,7 +31,14 @@
                 
                 <tbody>
                     @php($n=1)
+
+                    
                     @foreach ($orders as $order)
+                    @foreach($order->articles as $article)
+                        @dump($article->pivot)
+                    @endforeach
+                    @dd()
+
                     <tr>
                         <td>{{ $n++ }}</td>
                         <td>{{ $order->code }}</td>

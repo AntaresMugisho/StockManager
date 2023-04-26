@@ -33,6 +33,7 @@ class Order extends Model
 
     public function articles(): BelongsToMany
     {
-        return $this->belongsToMany(Article::class);
+        return $this->belongsToMany(Article::class)
+                    ->withPivot(["price", "quantity_ordered", "quantity_delivered"]);
     }
 }
