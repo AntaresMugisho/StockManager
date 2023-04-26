@@ -29,14 +29,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php($n=0)
+                    @php($n=1)
                     @forelse ($orders as $order)
                     <tr>
                         <td>{{ $n++ }}</td>
                         <td>{{ $order->code }}</td>
                         <td>{{ $order->supplier->name }}</td>
                         <td>{{ $order->orderedQuantity }}</td>
-                        <td>{{ $order->value }}</td>
+                        <td>{{ $order->value }} $</td>
                         <td>{{ $order->created_at }}</td>
                         <td>{{ $order->delivered_at ?? "-" }}</td>
                         <td>{{ $order->deliveredQuantity }}</td>
