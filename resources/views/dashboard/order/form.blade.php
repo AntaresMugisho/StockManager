@@ -5,7 +5,7 @@
 
         <h1>Passer une nouvelle commande </h1>
 
-        <form action=" {{ route("cart.store") }}" method="POST">
+        <form action=" {{ route("order.cart.store") }}" method="POST">
             @csrf
             
             <div class="form-block">
@@ -27,7 +27,7 @@
 
                 <div class="field-container">
                     <label for="quantity">Quantité</label>
-                    <input type="number" name="quantity" id="quantity">
+                    <input type="number" name="quantity" id="quantity" value="{{ old("quantity") }}">
                     @error("quantity")
                         <small>{{ $message }}</small>
                     @enderror
@@ -60,7 +60,7 @@
             </thead>
             <tbody>
                 @php
-                    $cartItems = Cart::content();
+                    $cartItems = Cart::instance("order")->content();
                     $n = 1;
                 @endphp
                 @forelse ($cartItems as $item)
@@ -73,7 +73,7 @@
                         <td>{{ $article->unit_purchase_price }} $</td>
                         <td>{{ $item->qty * $article->unit_purchase_price }} $</td>
                         <td>
-                            <form action="{{ route("cart.destroy", $item->rowId) }}" method="POST">
+                            <form action="{{ route("order.cart.destroy", $item->rowId) }}" method="POST">
                                 @csrf
                                 @method("DELETE")
                                 <button type="submit">Retirer</button>

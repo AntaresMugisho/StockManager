@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\OrderFormRequest;
 use App\Models\Order;
 use App\Models\Article;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use App\Http\Requests\OrderFormRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Requests\AddArticleToCartFormRequest;
 
 class OrderController extends Controller
 {
@@ -28,7 +29,7 @@ class OrderController extends Controller
         $articles = Article::all();
 
         return view("dashboard.order.form", [
-            "order" => new Order(),
+            "order" => new Order,
             "suppliers" => $suppliers,
             "articles" => $articles,
         ]);
@@ -48,7 +49,7 @@ class OrderController extends Controller
         $order->supplier()->associate($supplier);
         $order->save();
         
-        $cartItems = Cart::content();
+        $cartItems = Cart::instance("order")->content();
         foreach ($cartItems as $item){
             $article = $item->model;
 
@@ -58,7 +59,7 @@ class OrderController extends Controller
             ]);
         }
 
-        Cart::destroy();
+        Cart::instance("order")->destroy();
 
         return redirect()->route("order.index")->with("success", "La commande a été sauvegardée avec succès !");
     }
@@ -90,8 +91,9 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return back()->with("success", "La commande a été supprimée avec succès");
     }
 }

@@ -23,11 +23,12 @@
                         <th>Date de commande</th>
                         <th>Date de livraison</th>
                         <th>Quantité</th>
-                        <th>Coût total</th>
+                        {{-- <th>Coût total</th> --}}
                         <th>Validé</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
+                
                 <tbody>
                     @php($n=1)
                     @foreach ($orders as $order)
@@ -37,9 +38,10 @@
                         <td>{{ $order->supplier->name }}</td>
                         <td>{{ $order->created_at }}</td>
                         <td>{{ $order->delivered_at ?? "-"}}</td>
-                        {{-- <td>{{ $order->quantity }}</td> --}}
+                        <td>{{ $order->articles->quantity_ordered }}</td>  // Does not exist yet
+                        {{-- <td>{{ $order->total_price }}</td> --}}
                         <td>{{ "Non"}}</td>
-                        <td>{{ $order->cost }}</td>
+                        {{-- <td>{{ $order->cost }}</td> --}}
                         <td>
                             <a href="{{ route("order.edit", $order)}}">Voir</a>
                             <a href="{{ route("order.edit", $order)}}">Mettre à jour</a>

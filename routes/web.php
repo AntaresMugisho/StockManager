@@ -37,7 +37,7 @@ Route::prefix("dashboard")->group(function(){
     Route::resource("/order", OrderController::class);
     
     // Manage Order Cart
-    Route::resource("order/cart", OrderCartController::class);
+    Route::resource("order/cart", OrderCartController::class, ["as" => "order"])->only(["store", "destroy"]);
 });
 
 

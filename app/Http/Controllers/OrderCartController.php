@@ -34,7 +34,7 @@ class OrderCartController extends Controller
         
         $article = Article::where("code", $validated["article"])->first();
         
-        Cart::add([
+        Cart::instance("order")->add([
             "id" => $article->id,
             "name" => $article->name,
             "qty" => $validated["quantity"],
@@ -73,7 +73,7 @@ class OrderCartController extends Controller
      */
     public function destroy(string $rowId)
     {
-        Cart::remove($rowId);
+        Cart::instance("order")->remove($rowId);
         return back()->with("success", "L'article a été rétiré de la commande");
     }
 }
