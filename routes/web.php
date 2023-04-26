@@ -26,20 +26,29 @@ Route::get('/', function () {
 Route::prefix("dashboard")->group(function(){
     // Manage Articles
     Route::resource("/article", ArticleController::class)->except("show");
+
+    // -------------------------------------------------------------------------------------------------------
     
     // Manage Suppliers
     Route::resource("/supplier", SupplierController::class);
-    
-    // Manage Customers
-    Route::resource("/client", ClientController::class);
     
     // Manage Orders
     Route::resource("/order", OrderController::class);
     
     // Manage Order Cart
     Route::resource("order/cart", OrderCartController::class, ["as" => "order"])->only(["store", "destroy"]);
-});
 
+    // -------------------------------------------------------------------------------------------------------
+
+    // Manage Customers
+    Route::resource("/client", ClientController::class);
+
+    // Manage Invoices
+    Route::resource("/invoice", InvoiceController::class);
+
+    // Manage Invoice Cart
+    Route::resource("invoice/cart", InvoiceCartController::class, ["as" => "invoice"])->only(["store", "destroy"]);
+});
 
 
 // Route::get('/dashboard', function () {
