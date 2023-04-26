@@ -36,4 +36,43 @@ class Order extends Model
         return $this->belongsToMany(Article::class)
                     ->withPivot(["price", "quantity_ordered", "quantity_delivered"]);
     }
+
+
+    public function value(): float
+    {
+        $value = 0;
+        foreach ($this->articles as $article){
+            $value += $article->pivot->price * $article->pivot->quantity_ordered;
+        }
+
+        return $value;
+    }
+
+
+    public function orderedQuantity(): int
+    {
+        $quantity = 0;
+        foreach ($this->articles as $article){
+            $quantity += $article->pivot->quantity_ordered;
+        }
+
+        return $quantity;
+    }
+
+
+    public function deliveredQuantity(): int
+    {
+        $quantity = 0;
+        foreach ($this->articles as $article){
+            $quantity += $article->pivot->quantity_delivered;
+        }
+
+        return $quantity;
+    }
+
+    
+    public function validated(): bool
+    {
+        return ($this->deliveredQuantity() >= $this->orderedQuantity());
+    }
 }
