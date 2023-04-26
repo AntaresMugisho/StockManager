@@ -35,11 +35,11 @@
                         <td>{{ $n++ }}</td>
                         <td>{{ $order->code }}</td>
                         <td>{{ $order->supplier->name }}</td>
-                        <td>{{ $order->orderedQuantity }}</td>
+                        <td>{{ $order->ordered_quantity }}</td>
                         <td>{{ $order->value }} $</td>
                         <td>{{ $order->created_at }}</td>
                         <td>{{ $order->delivered_at ?? "-" }}</td>
-                        <td>{{ $order->deliveredQuantity }}</td>
+                        <td>{{ $order->delivered_quantity }}</td>
                         <td>{{ $order->validated ? "Oui" : "Non" }}</td>
                         <td>
                             <a href="{{ route("order.edit", $order) }}">Voir</a>

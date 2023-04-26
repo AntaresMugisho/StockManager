@@ -44,7 +44,7 @@ Route::prefix("dashboard")->group(function(){
     Route::resource("/client", ClientController::class);
 
     // Manage Invoices
-    Route::resource("/invoice", InvoiceController::class);
+    Route::resource("/invoice", InvoiceController::class)->except(["create", "edit"]);
 
     // Manage Invoice Cart
     Route::resource("invoice/cart", InvoiceCartController::class, ["as" => "invoice"])->only(["store", "destroy"]);

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Requests\AddArticleToCartFormRequest;
 
 class InvoiceCartController extends Controller
 {
@@ -25,9 +28,20 @@ class InvoiceCartController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddArticleToCartFormRequest $request)
     {
-        //
+        $validated = $request->validated();
+        
+        $article = Article::where("code", $validated["article"])->first();
+        
+        Cart::instance("invoice")->add([
+            "id" => $article->id,
+            "name" => $article->name,
+            "qty" => $validated["quantity"],
+            "price" => $article->unit_purchase_price,
+        ])->associate(Article::class);
+
+        return back()->with("success", "L'article {$article->code} a été ajouté au panier");
     }
 
     /**
