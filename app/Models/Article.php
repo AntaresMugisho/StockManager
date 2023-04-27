@@ -22,6 +22,19 @@ class Article extends Model
 
     public function orders(): BelongsToMany
     {
-        return $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Order::class)
+                    ->withPivot(["price", "quantity_ordered", "quantity_delivered"]);
+    }
+
+    // Getters ----------------------------------------
+    
+    public function getOrderedQuantityAttribute() : int
+    {
+        return $this->pivot->quantity_ordered;
+    }
+
+    public function getDeliveredQuantityAttribute() : int | null
+    {
+        return $this->pivot->quantity_delivered;
     }
 }

@@ -24,7 +24,7 @@
             </div>
 
             {{-- If inner is checked --}}
-            <p>Invantaire</p>
+            <p>En cas d'entrée</p>
 
             <div class="field-containr">
                 <label for="order">Commande</label>
@@ -39,8 +39,31 @@
                 @enderror
             </div>
 
-           <table>
-            
+           <table class="inner-checked">
+                @php
+                    $n = 1;
+                @endphp
+
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>ID Article</th>
+                        <th>Nom</th>
+                        <th>Quantité commandée</th>
+                        <th>Quantité reçue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($order->articles as $article)
+                    <tr>
+                        <td>{{ $n++ }}</td>
+                        <td>{{ $article->code }}</td>
+                        <td>{{ $article->name }}</td>
+                        <td>{{ $article->ordered_quantity }}</td>
+                        <td><input type="number" min="0" max="{{ $article->ordered_quantity }}" placeholder="0" name="delivered_quantity" id="delivered_quantity" value="{{ old("delivered_quantity", $article->delivered_quantity) }}"></td>
+                    </tr>
+                    @endforeach
+                </tbody>
            </table>
 
             <div class="field-container">
