@@ -11,7 +11,7 @@
             <div class="">
                 <p>Type de mouvement</p>
                 <div class="field-container">
-                    <input type="radio" name="booking" id="inner_booking" value="inner_booking">
+                    <input type="radio" name="booking" id="inner_booking" value="inner_booking" checked>
                     <label for="inner">Entrée</label>
 
                     <input type="radio" name="booking" id="outer_booking" value="outer_booking">
@@ -26,26 +26,26 @@
             {{-- If inner is checked --}}
             <p>En cas d'entrée</p>
 
+            
             <div class="field-containr">
                 <label for="order">Commande</label>
-                <select name="order" id="order">
+                <select name="order" id="order" value="{{ old("order") }}">
                     <option value="">Choisir la commande concernée...</option>
                     @foreach ($orders as $order)
-                        <option value="{{ $order->code }}" {{ old("order") == $order->code ? "selected" : null }}>{{ $order->code . " : " . $order->supplier->name }}</option>
+                    <option value="{{ $order->code }}" {{ old("order") == $order->code ? "selected" : null }}>{{ $order->code . " : " . $order->supplier->name }}</option>
                     @endforeach
                 </select>
                 @error("order")
-                    <small>{{ $message }}</small>
+                <small>{{ $message }}</small>
                 @enderror
             </div>
+            
+            
 
            <table class="inner-checked">
-                @php
-                    $n = 1;
-                @endphp
-
-                <thead>
-                    <tr>
+               
+               <thead>
+                   <tr>
                         <th>N°</th>
                         <th>ID Article</th>
                         <th>Nom</th>
@@ -54,20 +54,23 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $n=1;
+                    @endphp
                     @foreach ($order->articles as $article)
                     <tr>
                         <td>{{ $n++ }}</td>
                         <td>{{ $article->code }}</td>
                         <td>{{ $article->name }}</td>
                         <td>{{ $article->ordered_quantity }}</td>
-                        <td><input type="number" min="0" max="{{ $article->ordered_quantity }}" placeholder="0" name="delivered_quantity" id="delivered_quantity" value="{{ old("delivered_quantity", $article->delivered_quantity) }}"></td>
+                        <td><input type="number" min="0" placeholder="0" name="{{ $article->code }}" id="{{ $article->code }}" value="{{ old($article->code, $article->delivered_quantity) }}"></td>
                     </tr>
                     @endforeach
                 </tbody>
            </table>
 
             <div class="field-container">
-                <button type="submit">Inventorier or Valider</button>
+                <button type="submit">Inventorier</button>
             </div>
         </form>
 

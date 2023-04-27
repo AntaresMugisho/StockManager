@@ -24,8 +24,8 @@ class BookingController extends Controller
     {
         return view("dashboard.booking.form", [
             "booking"  => new Booking,
-            "order"    => Order::find(20), // Just for tests
             "orders"   => Order::all(),
+            "order"    => Order::find(1), // Just for tests
             "invoices" => Invoice::all(),
         ]);
     }
@@ -35,7 +35,21 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->booking === "inner_booking"){
+
+            $order = Order::firstWhere("code", $request->order);
+            foreach ($order->articles as $article){
+                if ($request->input($article->code) !== null){
+                    $order->articles()->updateExistingPivot($article->id, [
+                         "quantity_delivered" => $request->input($article->code),
+                    ]);
+                    // $order->save;
+                }
+                else{
+                    return back()->with("warning", "Data usurpation");
+                }
+            }
+        }
     }
 
     /**
