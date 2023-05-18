@@ -23,10 +23,10 @@ class BookingController extends Controller
     public function create()
     {
         return view("dashboard.booking.form", [
-            "booking"  => new Booking,
-            "orders"   => Order::all(),
-            "order"    => Order::find(1), // Just for tests
-            "invoices" => Invoice::all(),
+            // "booking"  => new Booking,
+            // "orders"   => Order::all(),
+            // // "order"    => Order::find(1), // Just for tests
+            // "invoices" => Invoice::all(),
         ]);
     }
 
