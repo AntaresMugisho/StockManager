@@ -41,7 +41,7 @@ class BookingController extends Controller
                     ]);
                 }
                 else{
-                    return back()->with("warning", "Data usurpation");
+                    return back()->with("warning", "Erreur lors de la mise à jour de certains articles! Veuillez recharger la page pour continuer la mise à jour !");
                 }
             }
             return back()->with("success", "La commande a été mise à jour avec succès !");
