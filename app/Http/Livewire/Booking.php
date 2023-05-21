@@ -8,24 +8,28 @@ use Livewire\Component;
 
 class Booking extends Component
 {
-    public $innerBooking = false;
+    public $innerBooking;
     public $order;
+
+    public function __construct()
+    {
+        $this->order = Order::find(2);
+    }
 
     public function render()
     {
         return view('livewire.booking', [
             "booking"  => new Booking,
             "orders"   => Order::all(),
-            "order"    => Order::find(1),
             "invoices" => Invoice::all(),
         ]);
     }
 
-    public function toggleBooking(){
-        $this->innerBooking =! $this->innerBooking;
+    public function toggleBooking($value){
+        $this->innerBooking = ($value === "inner_booking") ? true : false;
     }
 
-    public function updateOrder(int $id){
-        $this->order = Order::find($id);
+    public function updateOrder(string $orderCode){
+        $this->order = $orderCode ? Order::firstWhere("code", $orderCode) : Order::find(2);
     }
 }

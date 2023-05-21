@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BookingRequest;
 use App\Models\Order;
 use App\Models\Booking;
 use App\Models\Invoice;
@@ -22,18 +23,13 @@ class BookingController extends Controller
      */
     public function create()
     {
-        return view("dashboard.booking.form", [
-            // "booking"  => new Booking,
-            // "orders"   => Order::all(),
-            // // "order"    => Order::find(1), // Just for tests
-            // "invoices" => Invoice::all(),
-        ]);
+        return view("dashboard.booking.form");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BookingRequest $request)
     {
         if ($request->booking === "inner_booking"){
 
@@ -43,12 +39,12 @@ class BookingController extends Controller
                     $order->articles()->updateExistingPivot($article->id, [
                          "quantity_delivered" => $request->input($article->code),
                     ]);
-                    // $order->save;
                 }
                 else{
                     return back()->with("warning", "Data usurpation");
                 }
             }
+            return back()->with("success", "La commande a été mise à jour avec succès !");
         }
     }
 
