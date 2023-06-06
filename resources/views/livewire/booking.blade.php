@@ -28,8 +28,8 @@
             <select name="order" id="order" value="{{ old("order") }}" required wire:change="updateOrder($event.target.value)">
                 <option value="">Choisir la commande...</option>
 
-                @foreach ($orders as $orde)
-                <option value="{{ $orde->code }}" {{ old("order") == $orde->code ? "selected" : null }}>{{ $orde->code . " : " . $orde->supplier->name }}</option>
+                @foreach ($orders as $ord)
+                <option value="{{ $ord->code }}" {{ old("order") == $ord->code ? "selected" : null }}>{{ $ord->code . " : " . $ord->supplier->name }}</option>
                 @endforeach
             </select>
             
@@ -63,10 +63,51 @@
                     @endforeach
                 </tbody>
             </table>
-        @else
-            
+        
+        {{-- Will start by here the next time --}}
+        {{-- @else
+            <label for="article">Client</label>
+            <select name="article" id="article" value="{{ old("article") }}" required wire:change="updateArticle($event.target.value)">
+                <option value="">Choisir la commande...</option>
 
-        @endif
+                @foreach ($orders as $ord)
+                <option value="{{ $ord->code }}" {{ old("order") == $ord->code ? "selected" : null }}>{{ $ord->code . " : " . $ord->supplier->name }}</option>
+                @endforeach
+            </select>
+            
+            @error("order")
+                <small>{{ $message }}</small>
+            @enderror
+
+            <table class="inner-checked">
+            <thead>
+                <tr>
+                        <th>N°</th>
+                        <th>ID Article</th>
+                        <th>Nom</th>
+                        <th>Quantité commandée</th>
+                        <th>Quantité reçue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @php
+                        $n=1;
+                    @endphp
+                    {{-- Order is being updated on selection change --}}
+                    @foreach ($order->articles as $article)
+                    <tr>
+                        <td>{{ $n++ }}</td>
+                        <td>{{ $article->code }}</td>
+                        <td>{{ $article->name }}</td>
+                        <td>{{ $article->ordered_quantity }}</td>
+                        <td><input type="number" min="0" placeholder="0" name="{{ $article->code }}" id="{{ $article->code }}" value="{{ old($article->code, $article->delivered_quantity) }}" aria-label="Quantité reçue"></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+                
+
+        @endif --}}
     
         <div class="field-container">
             <button type="submit">{{ $innerBooking ? "Enregistrer" : "Ajouter"}}</button>
